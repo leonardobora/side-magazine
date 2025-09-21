@@ -1,0 +1,310 @@
+PROMPT PARA CRIAÇÃO DO WEBSITE SIDE MAGAZINE NO REPLIT
+Crie um website completo e responsivo para a SIDE Magazine usando HTML, CSS e JavaScript vanilla. O site deve ser uma landing page moderna e minimalista para o lançamento da Edição 01 "CORES E FORMAS".
+
+📋 ESTRUTURA DO PROJETO
+Arquivos necessários:
+index.html (página principal)
+
+style.css (estilos principais)
+
+script.js (interações JavaScript)
+
+README.md (documentação do projeto)
+
+🎯 CONTEÚDO DO SITE
+Seções obrigatórias:
+Header/Navegação
+
+Logo SIDE Magazine
+
+Menu: Sobre | Edição 01 | Evento | Contato
+
+Hero Section
+
+Título: "CORES E FORMAS"
+
+Subtítulo: "Edição 01"
+
+Data e local: "28 de setembro • Soma Galeria • Curitiba"
+
+CTA principal: "GARANTIR INGRESSO" (link: https://pixta.me/events/lancamento-side01)
+
+Sobre a Revista
+
+Texto: "A SIDE Magazine é uma revista-ponte entre moda, arte, cultura visual, criatividade prática e inovação digital. Um espaço de encontro entre especialistas generalistas."
+
+Artistas em Destaque
+
+Mateus Ussui: "Artista visual que explora dimensões através de raciocínio lógico transformado em expressão artística"
+
+Mazi Moreto: "Criador que trabalha com formas, texturas, eminências e sutilezas em campo orgânico de experimentações"
+
+Line-up Musical
+
+Raffa Chaouiche (Headliner)
+
+Thiago Oliveira B2B Danidan
+
+Jé Allana B2B Amanda Goes
+
+Informações do Evento
+
+Local: Soma Galeria
+
+Endereço: R. Mal José B Bormann, 730, Curitiba/PR
+
+Data: 28 de setembro de 2025 (domingo)
+
+Horário: 14h às 21h
+
+Destaque: Sorteio de press kit exclusivo
+
+Footer
+
+Links sociais: Instagram (@side.magazine)
+
+Contato: sidemagazine@outlook.com
+
+Créditos da equipe
+
+🎨 DESIGN SYSTEM
+Paleta de Cores (CSS Variables):
+css
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-cream: #F8F6F0;
+  --color-solar-yellow: #FFD700;
+  --color-soft-yellow: #FFF3A0;
+  --color-hot-pink: #FF1493;
+  --color-soft-pink: #FFB6C1;
+  --color-lime-green: #CCFF66;
+  --color-olive-green: #6B8E23;
+  --color-vibrant-red: #FF0040;
+  --color-orange: #FF8C00;
+  --color-electric-blue: #0080FF;
+}
+Tipografia:
+Primary: 'Inter', system-ui, sans-serif (corpo do texto)
+
+Display: 'Archivo Black', Arial Black, sans-serif (títulos)
+
+Editorial: 'Playfair Display', Georgia, serif (destaques)
+
+Breakpoints:
+Mobile: até 768px
+
+Tablet: 768px - 1024px
+
+Desktop: 1024px+
+
+🏗️ ESPECIFICAÇÕES TÉCNICAS
+HTML:
+Estrutura semântica (header, main, section, article, footer)
+
+Meta tags para SEO
+
+Open Graph para compartilhamento social
+
+Favicon
+
+Links externos com target="_blank" rel="noopener noreferrer"
+
+CSS:
+Mobile-first approach
+
+CSS Grid e Flexbox para layouts
+
+CSS Variables para cores e espaçamentos
+
+Smooth scroll behavior
+
+Transitions suaves (300ms ease)
+
+Dark/light mode opcional
+
+JavaScript:
+Scroll suave para navegação
+
+Animações on scroll (Intersection Observer)
+
+Menu mobile responsivo
+
+Smooth scrolling para âncoras
+
+Loading states para CTAs
+
+Analytics básico (opcional)
+
+🎭 ELEMENTOS VISUAIS
+Componentes-chave:
+Hero com background colorido (gradiente ou cor sólida)
+
+Cards para artistas (imagem + texto + overlay colorido)
+
+Color blocks para separar seções
+
+Grid assimétrico para layout editorial
+
+Botões com hover effects elegantes
+
+Typography emphasis (palavras destacadas em cores)
+
+Animações:
+Fade in up para elementos ao scroll
+
+Hover effects sutis nos botões
+
+Parallax leve no hero (opcional)
+
+Loading animation no CTA principal
+
+📱 RESPONSIVIDADE
+Mobile (até 768px):
+Menu hamburger
+
+Stack vertical de todos os elementos
+
+Imagens full-width
+
+Texto legível (min 16px)
+
+Touch-friendly buttons (min 44px)
+
+Tablet (768px - 1024px):
+Layout em 2 colunas onde apropriado
+
+Menu horizontal
+
+Imagens em grid 2x2
+
+Desktop (1024px+):
+Layout completo em grid
+
+Sidebar opcional
+
+Hover effects mais elaborados
+
+Parallax effects
+
+💻 CÓDIGO BÁSICO DE REFERÊNCIA
+Estrutura HTML básica:
+xml
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDE Magazine - Cores e Formas | Edição 01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">SIDE</div>
+            <ul class="nav-menu">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#evento">Evento</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>CORES E FORMAS</h1>
+            <p>Edição 01</p>
+            <a href="https://pixta.me/events/lancamento-side01" class="cta-button">GARANTIR INGRESSO</a>
+        </section>
+        <!-- Demais seções... -->
+    </main>
+
+    <footer class="footer">
+        <!-- Conteúdo do footer -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+Estilos CSS básicos:
+css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-cream);
+    text-align: center;
+    padding: 2rem;
+}
+
+.cta-button {
+    background: var(--color-solar-yellow);
+    color: var(--color-black);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--color-hot-pink);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+✅ CHECKLIST DE FUNCIONALIDADES
+Obrigatórias:
+ Layout responsivo funcionando
+
+ Menu de navegação funcional
+
+ Link do CTA abrindo corretamente
+
+ Todas as seções de conteúdo presentes
+
+ Paleta de cores implementada
+
+ Tipografia adequada
+
+ Performance otimizada (< 3s loading)
+
+Desejáveis:
+ Animações smooth ao scroll
+
+ Hover effects nos elementos interativos
+
+ Loading states nos botões
+
+ Meta tags para SEO
+
+ Acessibilidade básica (alt texts, contrast)
+
+🚀 INSTRUÇÕES FINAIS
+Priorize a funcionalidade sobre decoração excessiva
+
+Teste em mobile primeiro - maioria dos usuários
+
+Mantenha o loading rápido - minimize imagens pesadas
+
+Use comentários no código para facilitar manutenção
+
+Valide HTML e CSS antes de publicar
+
+Teste o link do CTA - é a conversão principal
+
+O resultado deve ser um website limpo, moderno e funcional que reflita a identidade da SIDE Magazine e converta visitantes em participantes do evento.

@@ -33,6 +33,15 @@ export default function Footer() {
               >
                 <i className="fab fa-instagram"></i>
               </a>
+              <a 
+                href="https://linkedin.com/in/leonardobora" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-accent transition-colors"
+                data-testid="link-linkedin"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>
           

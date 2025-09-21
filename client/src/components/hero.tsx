@@ -1,4 +1,5 @@
 import { useState } from "react";
+import sideImagePath from "@assets/side (4)_1758481584477.png";
 
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,12 +12,23 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-4 text-center z-10">
+    <section 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${sideImagePath})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay para melhorar legibilidade do texto */}
+      <div className="absolute inset-0 bg-white/30"></div>
+      
+      <div className="container mx-auto px-4 text-center z-10 relative">
         <div className="fade-in-up">
           <h1 className="font-display text-5xl md:text-7xl lg:text-9xl mb-4 tracking-tight">
-            <span className="gradient-text">CORES E</span><br/>
-            <span className="text-foreground">FORMAS</span>
+            <span className="text-black">CORES E</span><br/>
+            <span className="text-black">FORMAS</span>
           </h1>
           <p className="font-editorial text-xl md:text-2xl mb-2 text-muted-foreground">Edição 01</p>
           <p className="text-lg md:text-xl mb-8 text-muted-foreground">28 de setembro • Soma Galeria • Curitiba</p>

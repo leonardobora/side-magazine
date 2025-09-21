@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,6 +63,24 @@ export default function Header() {
               >
                 Edição 01
               </a>
+            </li>
+            <li>
+              <Link 
+                href="/galeria" 
+                className="hover:text-accent transition-colors"
+                data-testid="nav-galeria"
+              >
+                Galeria
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/parcerias" 
+                className="hover:text-accent transition-colors"
+                data-testid="nav-parcerias"
+              >
+                Parcerias
+              </Link>
             </li>
             <li>
               <a 
@@ -136,6 +155,26 @@ export default function Header() {
               >
                 Edição 01
               </a>
+            </li>
+            <li>
+              <Link 
+                href="/galeria" 
+                className="block hover:text-accent transition-colors py-2"
+                onClick={handleMenuLinkClick}
+                data-testid="mobile-nav-galeria"
+              >
+                Galeria
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/parcerias" 
+                className="block hover:text-accent transition-colors py-2"
+                onClick={handleMenuLinkClick}
+                data-testid="mobile-nav-parcerias"
+              >
+                Parcerias
+              </Link>
             </li>
             <li>
               <a 

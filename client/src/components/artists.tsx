@@ -8,8 +8,8 @@ export default function Artists() {
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Artist 1 */}
-          <div className="fade-in-up group" data-testid="artist-card-mateus">
-            <div className="relative overflow-hidden bg-card rounded-lg p-8 h-full border-4 border-transparent hover:border-accent transition-all duration-300">
+          <div className="fade-in-up">
+            <div className="relative overflow-hidden bg-card rounded-lg p-8 h-full border-4 border-transparent hover:border-accent transition-all duration-300 group" data-testid="artist-card-mateus">
               <div 
                 className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                 style={{ background: 'linear-gradient(45deg, var(--color-hot-pink), var(--color-lime-green))' }}
@@ -26,8 +26,8 @@ export default function Artists() {
           </div>
           
           {/* Artist 2 */}
-          <div className="fade-in-up group" data-testid="artist-card-mazi">
-            <div className="relative overflow-hidden bg-card rounded-lg p-8 h-full border-4 border-transparent hover:border-secondary transition-all duration-300">
+          <div className="fade-in-up">
+            <div className="relative overflow-hidden bg-card rounded-lg p-8 h-full border-4 border-transparent hover:border-secondary transition-all duration-300 group" data-testid="artist-card-mazi">
               <div 
                 className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                 style={{ background: 'linear-gradient(45deg, var(--color-electric-blue), var(--color-solar-yellow))' }}

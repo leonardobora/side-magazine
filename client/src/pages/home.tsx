@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/side (2)_1758574258105.png";
+import heroImage from "@assets/side (4)_1758574540066.png";
+import editionCover from "@assets/side (1)_1758574511865.png";
 
 export default function Home() {
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function Home() {
           <img
             src={heroImage}
             alt="SIDE Magazine CORES E FORMAS - Evento de Lançamento"
-            className="w-full h-auto object-cover"
+            className="w-full h-80 md:h-96 object-cover object-center"
             data-testid="hero-image"
           />
         </div>
@@ -87,7 +88,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div>
             <img
-              src="/api/placeholder/400/600"
+              src={editionCover}
               alt="CORES E FORMAS Edition Cover"
               className="w-full h-96 object-cover"
               data-testid="edition-cover"

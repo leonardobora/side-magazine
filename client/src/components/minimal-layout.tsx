@@ -186,6 +186,20 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
             </div>
           </div>
 
+          {/* Purchase Button */}
+          <div className="mt-8">
+            <a
+              href="https://pixta.me/events/lancamento-side01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <button className="w-full bg-red-600 text-white font-bold py-3 px-4 text-sm tracking-wide hover:bg-red-700 transition-colors border-0">
+                COMPRAR SIDE 01
+              </button>
+            </a>
+          </div>
+
           {/* Contact */}
           <div className="mt-8">
             <div className="text-xs text-gray-500 mb-2 tracking-wide">CONTATO</div>

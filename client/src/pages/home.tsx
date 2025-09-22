@@ -53,12 +53,18 @@ export default function Home() {
           />
         </div>
         <div className="text-center">
-          <Button
-            className="bg-black text-white hover:bg-gray-800 px-8 py-3"
-            data-testid="button-main-cta"
+          <a
+            href="https://pixta.me/events/lancamento-side01"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Garanta seu ingresso
-          </Button>
+            <Button
+              className="bg-black text-white hover:bg-gray-800 px-8 py-3"
+              data-testid="button-main-cta"
+            >
+              Garanta seu ingresso
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -117,12 +123,18 @@ export default function Home() {
           </div>
         </div>
 
-        <Button
-          className="bg-black text-white hover:bg-gray-800 px-8 py-3"
-          data-testid="button-buy-magazine"
+        <a
+          href="https://pixta.me/events/lancamento-side01"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Adquirir Revista
-        </Button>
+          <Button
+            className="bg-black text-white hover:bg-gray-800 px-8 py-3"
+            data-testid="button-buy-magazine"
+          >
+            Adquirir Revista
+          </Button>
+        </a>
 
         <div className="divider"></div>
       </section>
@@ -196,10 +208,10 @@ export default function Home() {
                   <strong>Local:</strong> Soma Galeria
                 </p>
                 <p>
-                  <strong>Endereço:</strong> Curitiba, PR
+                  <strong>Endereço:</strong> R. Mal José B Bormann, 730 - Batel, Curitiba - PR, 80730-350
                 </p>
                 <p>
-                  <strong>Entrada:</strong> Gratuita
+                  <strong>Entrada:</strong> Paga, ingressos disponíveis no @pixta.me acessando o link
                 </p>
               </div>
 
@@ -219,19 +231,19 @@ export default function Home() {
               {/* Google Maps Embed */}
               <div className="w-full h-64 bg-gray-100 border">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2089876892!2d-49.27292!3d-25.440397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzI1LjQiUyA0OcKwMTYnMjIuNSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.0988876892!2d-49.2847315!3d-25.4418873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce3e7c8f8d8a5%3A0x9f7b7b7b7b7b7b7b!2sR.%20Mal.%20José%20Borba%20Bormann%2C%20730%20-%20Batel%2C%20Curitiba%20-%20PR%2C%2080730-350!5e0!3m2!1spt-BR!2sbr!4v1698765432109"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização Soma Galeria"
+                  title="Localização Soma Galeria - Batel"
                   data-testid="maps-embed"
                 />
               </div>
               <p className="text-xs text-gray-500 mt-2">
-                Localização da Soma Galeria, Curitiba
+                R. Mal José B Bormann, 730 - Batel, Curitiba
               </p>
             </div>
           </div>

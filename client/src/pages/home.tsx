@@ -35,7 +35,7 @@ export default function Home() {
           className="font-serif text-5xl md:text-7xl text-black mb-4"
           data-testid="main-title"
         >
-          Side Magazine
+          SIDE Magazine
         </h1>
         <div className="w-full h-px bg-gray-200 my-8"></div>
       </header>
@@ -59,7 +59,7 @@ export default function Home() {
           className="text-lg leading-relaxed mb-6 font-serif italic"
           data-testid="about-text"
         >
-          <em>Side Magazine</em> é concebida como um espaço de pesquisa e
+          <em>SIDE Magazine</em> é concebida como um espaço de pesquisa e
           criação artística, dedicada à intersecção entre moda, arte e cultura
           visual. Cada edição explora territórios únicos através do olhar de
           artistas, curadores e pensadores contemporâneos.
@@ -130,7 +130,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8 text-sm">
           <div>
             <p className="mb-2">
-              <strong>Editor Executivo:</strong> Leonardo Bora
+              <strong>Editora Executiva:</strong> Antonia Von Hartenthal
             </p>
             <p className="mb-2">
               <strong>Direção de Arte:</strong> Equipe SIDE
@@ -154,7 +154,7 @@ export default function Home() {
 
         <div className="mt-6 text-sm text-gray-600">
           <p className="italic">
-            Side Magazine é publicada de forma independente em Curitiba, Brasil.
+            SIDE Magazine é publicada de forma independente em Curitiba, Brasil.
           </p>
         </div>
 
@@ -305,7 +305,7 @@ export default function Home() {
       <footer className="pt-8 border-t border-gray-200 text-sm text-gray-600">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <p>Side Magazine © 2025</p>
+            <p>SIDE Magazine © 2025</p>
             <p>contato@sidemagazine.com</p>
           </div>
           <div className="flex gap-4">

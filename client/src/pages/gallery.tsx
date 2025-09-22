@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Camera, Calendar, Eye } from "lucide-react";
+import { Eye, Calendar, Image } from "lucide-react";
 
 // Mock data - será substituído por dados reais do backend no futuro
 const mockGalleries = [
@@ -16,7 +12,7 @@ const mockGalleries = [
     coverImage: "/api/placeholder/400/300",
     imageCount: 24,
     createdAt: "2025-09-28",
-    isPublished: "published"
+    category: "evento"
   },
   {
     id: "2", 
@@ -25,16 +21,25 @@ const mockGalleries = [
     coverImage: "/api/placeholder/400/300",
     imageCount: 18,
     createdAt: "2025-09-15",
-    isPublished: "published"
+    category: "bastidores"
   },
   {
     id: "3",
     title: "Ensaio Editorial",
-    description: "Fotografias autorais dos artistas em destaque",
+    description: "Fotografias autorais dos artistas em destaque na primeira edição",
     coverImage: "/api/placeholder/400/300", 
     imageCount: 12,
     createdAt: "2025-09-10",
-    isPublished: "draft"
+    category: "editorial"
+  },
+  {
+    id: "4",
+    title: "Processo Criativo",
+    description: "Documentação do desenvolvimento visual e conceitual da revista",
+    coverImage: "/api/placeholder/400/300",
+    imageCount: 15,
+    createdAt: "2025-09-01",
+    category: "bastidores"
   }
 ];
 
@@ -44,155 +49,157 @@ export default function Gallery() {
   // Query placeholder - será implementada quando conectar com o backend
   const { data: galleries, isLoading } = useQuery({
     queryKey: ["/api/galleries"],
-    queryFn: () => Promise.resolve(mockGalleries), // Mock implementation
+    queryFn: () => Promise.resolve(mockGalleries),
     enabled: false // Desabilitado até implementar backend
   });
 
   const displayGalleries = mockGalleries.filter(gallery => 
-    selectedCategory === "all" || 
-    gallery.isPublished === selectedCategory ||
-    (selectedCategory === "evento" && gallery.title.toLowerCase().includes("lançamento")) ||
-    (selectedCategory === "bastidores" && gallery.title.toLowerCase().includes("bastidores")) ||
-    (selectedCategory === "editorial" && gallery.title.toLowerCase().includes("ensaio"))
+    selectedCategory === "all" || gallery.category === selectedCategory
   );
 
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 bg-muted">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-4xl mx-auto fade-in-up">
-              <h1 className="font-display text-4xl md:text-6xl mb-6" data-testid="gallery-title">
-                GALERIA DIGITAL
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                Explore os momentos únicos, bastidores e registros visuais dos 
-                eventos e projetos da SIDE Magazine
-              </p>
-            </div>
-          </div>
-        </section>
+  const categories = [
+    { value: "all", label: "Todos" },
+    { value: "evento", label: "Eventos" },
+    { value: "bastidores", label: "Bastidores" },
+    { value: "editorial", label: "Editorial" }
+  ];
 
-        {/* Filter Section */}
-        <section className="py-12 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex flex-wrap gap-4 justify-center mb-8">
-                {[
-                  { key: "all", label: "Todos" },
-                  { key: "evento", label: "Eventos" },
-                  { key: "bastidores", label: "Bastidores" },
-                  { key: "editorial", label: "Editorial" },
-                ].map((category) => (
-                  <Button
-                    key={category.key}
-                    variant={selectedCategory === category.key ? "default" : "outline"}
-                    onClick={() => setSelectedCategory(category.key)}
-                    data-testid={`filter-${category.key}`}
-                    className="transition-all duration-300"
-                  >
-                    {category.label}
-                  </Button>
-                ))}
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-12">
+      {/* Header */}
+      <header className="mb-16">
+        <h1 className="font-serif text-4xl md:text-5xl text-black mb-6" data-testid="gallery-title">
+          Galeria
+        </h1>
+        <div className="w-full h-px bg-gray-200 mb-8"></div>
+        <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
+          Explore os momentos únicos, bastidores e registros visuais dos eventos 
+          e projetos da Side Magazine. Uma documentação visual do nosso processo 
+          criativo e das experiências que criamos.
+        </p>
+      </header>
+
+      {/* Filter Navigation */}
+      <div className="mb-12">
+        <div className="flex flex-wrap gap-4">
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              onClick={() => setSelectedCategory(category.value)}
+              className={`px-4 py-2 text-sm border transition-colors ${
+                selectedCategory === category.value
+                  ? "bg-black text-white border-black"
+                  : "bg-white text-gray-600 border-gray-300 hover:border-black hover:text-black"
+              }`}
+              data-testid={`filter-${category.value}`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Gallery Grid */}
+      {displayGalleries.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {displayGalleries.map((gallery) => (
+            <div key={gallery.id} className="group" data-testid={`gallery-${gallery.id}`}>
+              <div className="mb-4">
+                <img
+                  src={gallery.coverImage}
+                  alt={gallery.title}
+                  className="w-full h-64 object-cover border border-gray-200 group-hover:border-black transition-colors"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <h3 className="font-medium text-lg group-hover:text-gray-600 transition-colors" data-testid={`gallery-title-${gallery.id}`}>
+                  {gallery.title}
+                </h3>
+                
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {gallery.description}
+                </p>
+                
+                <div className="flex items-center gap-4 text-xs text-gray-500 pt-2">
+                  <div className="flex items-center gap-1">
+                    <Image className="w-3 h-3" />
+                    <span>{gallery.imageCount} fotos</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>{new Date(gallery.createdAt).toLocaleDateString('pt-BR')}</span>
+                  </div>
+                </div>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-3 border-gray-300 text-gray-600 hover:border-black hover:text-black"
+                  data-testid={`button-view-${gallery.id}`}
+                >
+                  <Eye className="w-3 h-3 mr-1" />
+                  Ver Galeria
+                </Button>
               </div>
             </div>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-16">
+          <div className="max-w-md mx-auto">
+            <Image className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-600 mb-2">
+              Nenhuma galeria encontrada
+            </h3>
+            <p className="text-sm text-gray-500">
+              Não há galerias disponíveis para a categoria selecionada.
+            </p>
           </div>
-        </section>
+        </div>
+      )}
 
-        {/* Gallery Grid */}
-        <section className="pb-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              {displayGalleries.length > 0 ? (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {displayGalleries.map((gallery, index) => (
-                    <div key={gallery.id} className="fade-in-up group" data-testid={`gallery-card-${gallery.id}`}>
-                      <Card className="overflow-hidden border-2 border-transparent hover:border-accent transition-all duration-300 h-full">
-                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                          <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center">
-                            <Camera className="w-16 h-16 text-muted-foreground/50" />
-                          </div>
-                          <div className="absolute top-4 right-4">
-                            <Badge 
-                              variant={gallery.isPublished === "published" ? "default" : "secondary"}
-                              data-testid={`badge-status-${gallery.id}`}
-                            >
-                              {gallery.isPublished === "published" ? "Publicado" : "Rascunho"}
-                            </Badge>
-                          </div>
-                          <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
-                            <Eye className="w-4 h-4" />
-                            {gallery.imageCount} fotos
-                          </div>
-                        </div>
-                        
-                        <CardContent className="p-6">
-                          <h3 className="font-display text-xl mb-2" data-testid={`gallery-title-${gallery.id}`}>
-                            {gallery.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2" data-testid={`gallery-description-${gallery.id}`}>
-                            {gallery.description}
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Calendar className="w-4 h-4" />
-                              {new Date(gallery.createdAt).toLocaleDateString('pt-BR')}
-                            </div>
-                            <Button 
-                              size="sm" 
-                              variant="ghost"
-                              className="hover:bg-accent hover:text-accent-foreground"
-                              data-testid={`button-view-${gallery.id}`}
-                            >
-                              Ver Álbum
-                            </Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-20">
-                  <Camera className="w-24 h-24 text-muted-foreground/50 mx-auto mb-6" />
-                  <h3 className="font-display text-2xl mb-4">Em breve</h3>
-                  <p className="text-muted-foreground max-w-md mx-auto">
-                    Estamos preparando conteúdo visual exclusivo. 
-                    As fotografias dos eventos e projetos serão publicadas aqui em breve.
-                  </p>
-                </div>
-              )}
-            </div>
+      {/* Call to Action */}
+      <div className="border-t border-gray-200 pt-12">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="font-serif text-2xl text-black mb-4">
+            Quer acompanhar nossos próximos eventos?
+          </h2>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Fique por dentro dos lançamentos, eventos exclusivos e bastidores 
+            da Side Magazine. Siga nossas redes sociais para não perder nenhum momento.
+          </p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://www.instagram.com/side.magazine"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 border border-gray-300 text-gray-600 hover:border-black hover:text-black transition-colors text-sm"
+              data-testid="link-side-instagram"
+            >
+              @side.magazine
+            </a>
+            <a
+              href="https://www.instagram.com/somagaleria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 border border-gray-300 text-gray-600 hover:border-black hover:text-black transition-colors text-sm"
+              data-testid="link-soma-instagram"
+            >
+              @somagaleria
+            </a>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-accent text-accent-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-2xl mx-auto fade-in-up">
-              <h2 className="font-display text-3xl md:text-4xl mb-6">
-                Seja Parte da História
-              </h2>
-              <p className="text-lg mb-8 opacity-90">
-                Acompanhe nossos próximos eventos e seja fotografado para nossa galeria digital
-              </p>
-              <Button 
-                size="lg"
-                variant="secondary"
-                className="bg-accent-foreground text-accent hover:bg-primary hover:text-primary-foreground"
-                data-testid="button-events-cta"
-              >
-                Ver Próximos Eventos
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
+      {/* Technical Note */}
+      <div className="mt-16 pt-8 border-t border-gray-200 text-xs text-gray-500">
+        <p className="italic">
+          As galerias estão sendo organizadas e novas imagens serão adicionadas conforme 
+          os eventos acontecem. Esta seção será expandida com funcionalidades avançadas 
+          de visualização em breve.
+        </p>
+      </div>
     </div>
   );
 }

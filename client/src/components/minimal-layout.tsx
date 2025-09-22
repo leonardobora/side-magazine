@@ -147,7 +147,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
                 }}
                 data-testid="nav-subscribe"
               >
-                SUBSCRIBE
+                INSCREVA-SE
               </a>
             </li>
           </ul>

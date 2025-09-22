@@ -6,19 +6,19 @@ export default function Home() {
     // Intersection Observer for fade-in animations
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          entry.target.classList.add("animate");
         }
       });
     }, observerOptions);
 
     // Observe all fade-in elements
-    document.querySelectorAll('.fade-in').forEach(el => {
+    document.querySelectorAll(".fade-in").forEach((el) => {
       observer.observe(el);
     });
 
@@ -31,7 +31,10 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       {/* Main Title */}
       <header className="mb-16 fade-in">
-        <h1 className="font-serif text-5xl md:text-7xl text-black mb-4" data-testid="main-title">
+        <h1
+          className="font-serif text-5xl md:text-7xl text-black mb-4"
+          data-testid="main-title"
+        >
           Side Magazine
         </h1>
         <div className="w-full h-px bg-gray-200 my-8"></div>
@@ -40,39 +43,44 @@ export default function Home() {
       {/* Hero Image Section */}
       <section className="mb-16 fade-in">
         <div className="relative mb-8">
-          <img 
-            src="/api/placeholder/800/500" 
-            alt="Side Magazine reading" 
+          <img
+            src="/api/placeholder/800/500"
+            alt="Side Magazine reading"
             className="w-full h-96 object-cover"
             data-testid="hero-image"
           />
         </div>
-        <p className="text-sm text-gray-600 italic mb-4">
-          → Buy or Subscribe
-        </p>
+        <p className="text-sm text-gray-600 italic mb-4">→ Buy or Subscribe</p>
       </section>
 
       {/* About Section */}
       <section id="about" className="mb-16 fade-in">
-        <p className="text-lg leading-relaxed mb-6 font-serif italic" data-testid="about-text">
-          <em>Side Magazine</em> é concebida como um espaço de pesquisa e criação artística, 
-          dedicada à intersecção entre moda, arte e cultura visual. Cada edição explora 
-          territórios únicos através do olhar de artistas, curadores e pensadores contemporâneos.
+        <p
+          className="text-lg leading-relaxed mb-6 font-serif italic"
+          data-testid="about-text"
+        >
+          <em>Side Magazine</em> é concebida como um espaço de pesquisa e
+          criação artística, dedicada à intersecção entre moda, arte e cultura
+          visual. Cada edição explora territórios únicos através do olhar de
+          artistas, curadores e pensadores contemporâneos.
         </p>
         <div className="divider"></div>
       </section>
 
       {/* Current Edition */}
       <section id="editions" className="mb-16 fade-in">
-        <h2 className="font-serif text-3xl md:text-4xl text-black mb-8" data-testid="edition-title">
+        <h2
+          className="font-serif text-3xl md:text-4xl text-black mb-8"
+          data-testid="edition-title"
+        >
           CORES E FORMAS
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div>
-            <img 
-              src="/api/placeholder/400/600" 
-              alt="CORES E FORMAS Edition Cover" 
+            <img
+              src="/api/placeholder/400/600"
+              alt="CORES E FORMAS Edition Cover"
               className="w-full h-96 object-cover"
               data-testid="edition-cover"
             />
@@ -80,74 +88,112 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <h3 className="text-xl font-medium mb-4">Edição 01</h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              A primeira edição da Side Magazine explora as relações entre cores e formas 
-              no contexto da arte contemporânea brasileira. Uma investigação sobre como 
-              artistas emergentes reinterpretam linguagens visuais tradicionais.
+              A segunda edição da Side Magazine explora as relações entre cores
+              e formas no contexto da arte contemporânea brasileira. Uma
+              investigação sobre como artistas emergentes reinterpretam
+              linguagens visuais tradicionais.
             </p>
             <div className="space-y-2 text-sm">
-              <p><strong>Lançamento:</strong> 28 de Setembro, 2025</p>
-              <p><strong>Local:</strong> Soma Galeria, Curitiba</p>
-              <p><strong>Formato:</strong> Publicação impressa + evento de lançamento</p>
+              <p>
+                <strong>Lançamento:</strong> 28 de Setembro, 2025
+              </p>
+              <p>
+                <strong>Local:</strong> Soma Galeria, Curitiba
+              </p>
+              <p>
+                <strong>Formato:</strong> Publicação impressa + evento de
+                lançamento
+              </p>
             </div>
           </div>
         </div>
-        
-        <Button 
+
+        <Button
           className="bg-black text-white hover:bg-gray-800 px-8 py-3"
           data-testid="button-buy-magazine"
         >
           Adquirir Revista
         </Button>
-        
+
         <div className="divider"></div>
       </section>
 
       {/* Team Section */}
       <section id="team" className="mb-16 fade-in">
-        <h2 className="font-serif text-2xl text-black mb-8" data-testid="team-title">
+        <h2
+          className="font-serif text-2xl text-black mb-8"
+          data-testid="team-title"
+        >
           Equipe
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8 text-sm">
           <div>
-            <p className="mb-2"><strong>Editor Executivo:</strong> Leonardo Bora</p>
-            <p className="mb-2"><strong>Direção de Arte:</strong> Equipe SIDE</p>
-            <p className="mb-2"><strong>Curadoria:</strong> Colaboradores convidados</p>
+            <p className="mb-2">
+              <strong>Editor Executivo:</strong> Leonardo Bora
+            </p>
+            <p className="mb-2">
+              <strong>Direção de Arte:</strong> Equipe SIDE
+            </p>
+            <p className="mb-2">
+              <strong>Curadoria:</strong> Colaboradores convidados
+            </p>
           </div>
           <div>
-            <p className="mb-2"><strong>Coordenação Editorial:</strong> Equipe SIDE</p>
-            <p className="mb-2"><strong>Assistente de Pesquisa:</strong> Colaboradores</p>
-            <p className="mb-2"><strong>Design Gráfico:</strong> Estúdio parceiro</p>
+            <p className="mb-2">
+              <strong>Coordenação Editorial:</strong> Equipe SIDE
+            </p>
+            <p className="mb-2">
+              <strong>Assistente de Pesquisa:</strong> Colaboradores
+            </p>
+            <p className="mb-2">
+              <strong>Design Gráfico:</strong> Estúdio parceiro
+            </p>
           </div>
         </div>
-        
+
         <div className="mt-6 text-sm text-gray-600">
           <p className="italic">
             Side Magazine é publicada de forma independente em Curitiba, Brasil.
           </p>
         </div>
-        
+
         <div className="divider"></div>
       </section>
 
       {/* Events Section */}
       <section id="events" className="mb-16 fade-in">
-        <h2 className="font-serif text-2xl text-black mb-8" data-testid="events-title">
+        <h2
+          className="font-serif text-2xl text-black mb-8"
+          data-testid="events-title"
+        >
           Eventos
         </h2>
-        
+
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-4">Lançamento CORES E FORMAS</h3>
+          <h3 className="text-xl font-medium mb-4">
+            Lançamento CORES E FORMAS
+          </h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <div className="space-y-3 text-sm">
-                <p><strong>Data:</strong> 28 de Setembro, 2025</p>
-                <p><strong>Horário:</strong> 19h às 22h</p>
-                <p><strong>Local:</strong> Soma Galeria</p>
-                <p><strong>Endereço:</strong> Curitiba, PR</p>
-                <p><strong>Entrada:</strong> Gratuita</p>
+                <p>
+                  <strong>Data:</strong> 28 de Setembro, 2025
+                </p>
+                <p>
+                  <strong>Horário:</strong> 19h às 22h
+                </p>
+                <p>
+                  <strong>Local:</strong> Soma Galeria
+                </p>
+                <p>
+                  <strong>Endereço:</strong> Curitiba, PR
+                </p>
+                <p>
+                  <strong>Entrada:</strong> Gratuita
+                </p>
               </div>
-              
+
               <div className="mt-6">
                 <h4 className="font-medium mb-2">Programação</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -159,7 +205,7 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            
+
             <div>
               {/* Google Maps Embed */}
               <div className="w-full h-64 bg-gray-100 border">
@@ -181,21 +227,24 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="divider"></div>
       </section>
 
       {/* Subscribe Section */}
       <section id="subscribe" className="mb-16 fade-in">
-        <h2 className="font-serif text-2xl text-black mb-8" data-testid="subscribe-title">
+        <h2
+          className="font-serif text-2xl text-black mb-8"
+          data-testid="subscribe-title"
+        >
           Newsletter
         </h2>
-        
+
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Receba atualizações sobre novas edições, eventos e conteúdos exclusivos 
-          da Side Magazine diretamente em seu email.
+          Receba atualizações sobre novas edições, eventos e conteúdos
+          exclusivos da Side Magazine diretamente em seu email.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 max-w-md">
           <input
             type="email"
@@ -203,23 +252,26 @@ export default function Home() {
             className="flex-1 px-4 py-2 border border-gray-300 text-sm focus:outline-none focus:border-black"
             data-testid="input-newsletter-email"
           />
-          <Button 
+          <Button
             className="bg-black text-white hover:bg-gray-800 px-6 py-2 text-sm"
             data-testid="button-subscribe"
           >
             Inscrever
           </Button>
         </div>
-        
+
         <div className="divider"></div>
       </section>
 
       {/* Images Section */}
       <section id="images" className="mb-16 fade-in">
-        <h2 className="font-serif text-2xl text-black mb-8" data-testid="images-title">
+        <h2
+          className="font-serif text-2xl text-black mb-8"
+          data-testid="images-title"
+        >
           Arquivo Visual
         </h2>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           <div className="aspect-square bg-gray-100 border flex items-center justify-center">
             <span className="text-gray-400 text-sm">Imagem 1</span>
@@ -240,11 +292,12 @@ export default function Home() {
             <span className="text-gray-400 text-sm">Imagem 6</span>
           </div>
         </div>
-        
+
         <p className="text-sm text-gray-500 italic">
-          Arquivo visual em construção. Imagens serão adicionadas conforme o desenvolvimento do projeto.
+          Arquivo visual em construção. Imagens serão adicionadas conforme o
+          desenvolvimento do projeto.
         </p>
-        
+
         <div className="divider"></div>
       </section>
 
@@ -253,35 +306,35 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <p>Side Magazine © 2025</p>
-            <p>post@sidemagazine.com</p>
+            <p>contato@sidemagazine.com</p>
           </div>
           <div className="flex gap-4">
-            <a 
-              href="https://www.instagram.com/side.magazine" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/side.magazine"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black transition-colors"
               data-testid="footer-side-instagram"
             >
               @side.magazine
             </a>
-            <a 
-              href="https://www.instagram.com/somagaleria" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/somagaleria"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black transition-colors"
               data-testid="footer-soma-instagram"
             >
               @somagaleria
             </a>
-            <a 
-              href="https://linkedin.com/in/leonardobora" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/leonardobora"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black transition-colors"
               data-testid="footer-linkedin"
             >
-              LinkedIn
+              desenvolvido por Leo Bora!
             </a>
           </div>
         </div>

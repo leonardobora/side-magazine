@@ -62,7 +62,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
           {/* Logo */}
           <div className="mb-12">
             <h1 className="text-xl font-serif text-black tracking-wide" data-testid="logo">
-              Side Magazine
+              SIDE Magazine
             </h1>
           </div>
 

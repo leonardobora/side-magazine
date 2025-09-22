@@ -88,7 +88,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
                 }}
                 data-testid="nav-about"
               >
-                ABOUT
+                SOBRE
               </a>
             </li>
             <li>
@@ -101,7 +101,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
                 }}
                 data-testid="nav-editions"
               >
-                EDITIONS
+                EDIÇÕES
               </a>
             </li>
             <li>
@@ -114,7 +114,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
                 }}
                 data-testid="nav-events"
               >
-                EVENTS
+                EVENTOS
               </a>
             </li>
             <li>

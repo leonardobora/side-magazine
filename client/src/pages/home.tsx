@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@assets/side (2)_1758574258105.png";
 
 export default function Home() {
   useEffect(() => {
@@ -44,13 +45,20 @@ export default function Home() {
       <section className="mb-16 fade-in">
         <div className="relative mb-8">
           <img
-            src="/api/placeholder/800/500"
-            alt="Side Magazine reading"
-            className="w-full h-96 object-cover"
+            src={heroImage}
+            alt="SIDE Magazine CORES E FORMAS - Evento de Lançamento"
+            className="w-full h-auto object-cover"
             data-testid="hero-image"
           />
         </div>
-        <p className="text-sm text-gray-600 italic mb-4">→ Buy or Subscribe</p>
+        <div className="text-center">
+          <Button
+            className="bg-black text-white hover:bg-gray-800 px-8 py-3"
+            data-testid="button-main-cta"
+          >
+            Garanta seu ingresso
+          </Button>
+        </div>
       </section>
 
       {/* About Section */}
@@ -130,24 +138,24 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8 text-sm">
           <div>
             <p className="mb-2">
-              <strong>Editora Executiva:</strong> Antonia Von Hartenthal
+              <strong>Editora Executiva:</strong> [A definir]
             </p>
             <p className="mb-2">
-              <strong>Direção de Arte:</strong> Equipe SIDE
+              <strong>Direção de Arte:</strong> [A definir]
             </p>
             <p className="mb-2">
-              <strong>Curadoria:</strong> Colaboradores convidados
+              <strong>Curadoria:</strong> [A definir]
             </p>
           </div>
           <div>
             <p className="mb-2">
-              <strong>Coordenação Editorial:</strong> Equipe SIDE
+              <strong>Coordenação Editorial:</strong> [A definir]
             </p>
             <p className="mb-2">
-              <strong>Assistente de Pesquisa:</strong> Colaboradores
+              <strong>Assistente de Pesquisa:</strong> [A definir]
             </p>
             <p className="mb-2">
-              <strong>Design Gráfico:</strong> Estúdio parceiro
+              <strong>Design Gráfico:</strong> [A definir]
             </p>
           </div>
         </div>

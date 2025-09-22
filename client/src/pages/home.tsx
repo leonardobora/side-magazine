@@ -90,7 +90,7 @@ export default function Home() {
             <img
               src={editionCover}
               alt="CORES E FORMAS Edition Cover"
-              className="w-full h-96 object-cover"
+              className="w-4/5 h-96 object-cover mx-auto"
               data-testid="edition-cover"
             />
           </div>

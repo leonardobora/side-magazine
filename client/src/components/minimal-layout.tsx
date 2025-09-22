@@ -154,7 +154,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
 
           {/* Instagram Links */}
           <div className="mt-12 pt-6 border-t border-gray-200">
-            <div className="text-xs text-gray-500 mb-3 tracking-wide">FOLLOW</div>
+            <div className="text-xs text-gray-500 mb-3 tracking-wide">SIGA</div>
             <div className="space-y-2 text-sm">
               <a 
                 href="https://www.instagram.com/side.magazine"
@@ -174,12 +174,21 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               >
                 @somagaleria
               </a>
+              <a 
+                href="https://www.instagram.com/pixta.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-gray-600 hover:text-black transition-colors"
+                data-testid="link-pixta-instagram"
+              >
+                @pixta.me
+              </a>
             </div>
           </div>
 
           {/* Contact */}
           <div className="mt-8">
-            <div className="text-xs text-gray-500 mb-2 tracking-wide">CONTACT</div>
+            <div className="text-xs text-gray-500 mb-2 tracking-wide">CONTATO</div>
             <div className="text-sm text-gray-600">
               post@sidemagazine.com
             </div>

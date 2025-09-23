@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import heroImage from "@assets/side (4)_1758574540066.png";
 import editionCover from "@assets/side (1)_1758574511865.png";
-import sideLogo from "@assets/LOGO_SIDE_BRANCO_1758588504393.png";
+import sideLogo from "@assets/side_1758591780694.png";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -77,7 +77,7 @@ export default function Home() {
           <img 
             src={sideLogo} 
             alt="SIDE Magazine" 
-            className="w-48 md:w-64 h-auto" 
+            className="w-56 md:w-72 h-auto" 
             data-testid="main-logo"
           />
         </div>

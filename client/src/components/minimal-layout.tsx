@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import sideLogo from "@assets/LOGO_SIDE_BRANCO_1758588504393.png";
+import sideLogo from "@assets/side_1758591780694.png";
 
 interface MinimalLayoutProps {
   children: React.ReactNode;

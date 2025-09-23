@@ -1,9 +1,49 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 import heroImage from "@assets/side (4)_1758574540066.png";
 import editionCover from "@assets/side (1)_1758574511865.png";
+import sideLogo from "@assets/LOGO_SIDE_BRANCO_1758588504393.png";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  const newsletterMutation = useMutation({
+    mutationFn: (email: string) => apiRequest("POST", "/api/newsletter", { email }),
+    onSuccess: () => {
+      toast({
+        title: "Sucesso!",
+        description: "Você foi inscrito na nossa newsletter.",
+      });
+      setEmail("");
+      queryClient.invalidateQueries({ queryKey: ["/api/newsletter"] });
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Erro",
+        description: error.message || "Erro ao se inscrever na newsletter.",
+      });
+    },
+  });
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) {
+      toast({
+        variant: "destructive",
+        title: "Erro",
+        description: "Por favor, insira um email válido.",
+      });
+      return;
+    }
+    newsletterMutation.mutate(email.trim());
+  };
+
   useEffect(() => {
     // Intersection Observer for fade-in animations
     const observerOptions = {
@@ -33,12 +73,14 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       {/* Main Title */}
       <header className="mb-16 fade-in">
-        <h1
-          className="font-serif text-5xl md:text-7xl text-black mb-4"
-          data-testid="main-title"
-        >
-          SIDE Magazine
-        </h1>
+        <div className="flex justify-center mb-6">
+          <img 
+            src={sideLogo} 
+            alt="SIDE Magazine" 
+            className="w-48 md:w-64 h-auto" 
+            data-testid="main-logo"
+          />
+        </div>
         <div className="w-full h-px bg-gray-200 my-8"></div>
       </header>
 
@@ -243,7 +285,15 @@ export default function Home() {
                   <strong>Endereço:</strong> R. Mal José B Bormann, 730 - Batel, Curitiba - PR, 80730-350
                 </p>
                 <p>
-                  <strong>Entrada:</strong> Paga, ingressos disponíveis no @pixta.me acessando o link
+                  <strong>Entrada:</strong> 
+                  <a 
+                    href="https://pixta.me/events/lancamento-side01"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:underline ml-1"
+                  >
+                    ingressos disponíveis aqui
+                  </a>
                 </p>
               </div>
 
@@ -288,20 +338,25 @@ export default function Home() {
           exclusivos da Side Magazine diretamente em seu email.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 max-w-md">
+        <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
           <input
             type="email"
             placeholder="seu@email.com"
-            className="flex-1 px-4 py-2 border border-gray-300 text-sm focus:outline-none focus:border-black"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 px-4 py-2 border border-gray-300 text-sm focus:outline-none focus:border-white"
             data-testid="input-newsletter-email"
+            disabled={newsletterMutation.isPending}
           />
           <Button
+            type="submit"
             className="bg-black text-white hover:bg-gray-800 px-6 py-2 text-sm"
             data-testid="button-subscribe"
+            disabled={newsletterMutation.isPending}
           >
-            Inscrever
+            {newsletterMutation.isPending ? "Inscrevendo..." : "Inscrever"}
           </Button>
-        </div>
+        </form>
 
         <div className="divider"></div>
       </section>
@@ -349,7 +404,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <p>SIDE Magazine © 2025</p>
-            <p>contato@sidemagazine.com</p>
+            <p>antoniavonhart@gmail.com</p>
           </div>
           <div className="flex gap-4">
             <a

@@ -319,7 +319,7 @@ export default function Sponsors() {
       {/* Contact Info */}
       <div className="mt-16 pt-8 border-t border-gray-200 text-sm text-gray-600">
         <p>
-          <strong>Contato direto:</strong> post@sidemagazine.com
+          <strong>Contato direto:</strong> antoniavonhart@gmail.com
         </p>
         <p className="mt-2">
           Todas as propostas são analisadas individualmente. Retornaremos em até 5 dias úteis.

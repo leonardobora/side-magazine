@@ -1,72 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Minimal monochrome theme */
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 0%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 0%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 0%);
-  --primary: hsl(0, 0%, 0%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(0, 0%, 96%);
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --muted: hsl(0, 0%, 96%);
-  --muted-foreground: hsl(0, 0%, 45%);
-  --accent: hsl(0, 0%, 0%);
-  --accent-foreground: hsl(0, 0%, 100%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 90%);
-  --input: hsl(0, 0%, 96%);
-  --ring: hsl(0, 0%, 0%);
+  /* Verde menta calcinha theme */
+  --background: #F7F5F0;
+  --foreground: #FFFFFF;
+  --card: #F7F5F0;
+  --card-foreground: #FFFFFF;
+  --popover: #F7F5F0;
+  --popover-foreground: #FFFFFF;
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F8F0;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F0F8F0;
+  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --accent: #000000;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.3);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #000000;
   --radius: 0rem;
   
-  /* Minimal color palette */
-  --color-black: hsl(0, 0%, 0%);
-  --color-white: hsl(0, 0%, 100%);
-  --color-gray-50: hsl(0, 0%, 98%);
-  --color-gray-100: hsl(0, 0%, 96%);
-  --color-gray-200: hsl(0, 0%, 90%);
-  --color-gray-300: hsl(0, 0%, 83%);
-  --color-gray-400: hsl(0, 0%, 64%);
-  --color-gray-500: hsl(0, 0%, 45%);
-  --color-gray-600: hsl(0, 0%, 32%);
-  --color-gray-700: hsl(0, 0%, 25%);
-  --color-gray-800: hsl(0, 0%, 15%);
-  --color-gray-900: hsl(0, 0%, 9%);
-
   /* Typography */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-mono: 'Courier New', monospace;
-}
-
-.dark {
-  --background: hsl(0, 0%, 0%);
-  --foreground: hsl(0, 0%, 100%);
-  --card: hsl(0, 0%, 10%);
-  --card-foreground: hsl(0, 0%, 100%);
-  --popover: hsl(0, 0%, 0%);
-  --popover-foreground: hsl(0, 0%, 100%);
-  --primary: hsl(51, 100%, 50%);
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: hsl(120, 100%, 70%);
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --muted: hsl(0, 0%, 15%);
-  --muted-foreground: hsl(0, 0%, 70%);
-  --accent: hsl(328, 100%, 54%);
-  --accent-foreground: hsl(0, 0%, 100%);
-  --destructive: hsl(348, 100%, 50%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 20%);
-  --input: hsl(0, 0%, 15%);
-  --ring: hsl(51, 100%, 50%);
+  --font-title: 'Archivo Black', sans-serif;
+  --font-body: 'Libre Franklin', sans-serif;
 }
 
 @layer base {
@@ -75,16 +36,126 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    background-color: #F7F5F0;
+    color: #FFFFFF;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.6;
   }
   
   html {
     scroll-behavior: smooth;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
+    color: #FFFFFF;
+  }
+  
+  /* Override default text colors */
+  .text-black {
+    color: #FFFFFF !important;
+  }
+  
+  .text-gray-600 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .text-gray-500 {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  
+  .text-gray-400 {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  /* Update borders for visibility */
+  .border-gray-200 {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .border-gray-300 {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+  
+  /* Button styles */
+  .bg-black {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+  }
+  
+  .hover\:bg-gray-800:hover {
+    background-color: #1f2937 !important;
+  }
+  
+  .bg-red-600 {
+    background-color: #DC2626 !important;
+  }
+  
+  .hover\:bg-red-700:hover {
+    background-color: #B91C1C !important;
+  }
+  
+  /* Input styles */
+  input, textarea {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  /* Focus styles */
+  .focus\:border-black:focus {
+    border-color: #FFFFFF !important;
+    outline: none;
+  }
+  
+  .focus\:outline-none:focus {
+    outline: none;
+  }
+  
+  /* Link styles */
+  .text-blue-600 {
+    color: #FFFFFF !important;
+    text-decoration: underline;
+  }
+  
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+  
+  .hover\:text-black:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
 }
 
 @layer components {
-  /* Minimal utility classes */
+  /* Font utilities */
+  .font-serif {
+    font-family: 'Archivo Black', sans-serif !important;
+    font-weight: 900 !important;
+  }
+  
+  .font-sans {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-weight: 700 !important;
+  }
+  
+  /* Make all text bold by default */
+  .font-medium {
+    font-weight: 800 !important;
+  }
+  
+  .font-bold {
+    font-weight: 900 !important;
+  }
+  
+  /* Animation utilities */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -96,6 +167,14 @@
     transform: translateY(0);
   }
   
+  /* Divider */
+  .divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 2rem 0;
+  }
+  
+  /* Loading state */
   .loading {
     position: relative;
     overflow: hidden;
@@ -108,28 +187,12 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     animation: loading 1.5s infinite;
   }
   
   @keyframes loading {
     0% { left: -100%; }
     100% { left: 100%; }
-  }
-  
-  /* Typography utilities */
-  .font-serif {
-    font-family: var(--font-serif);
-  }
-  
-  .font-sans {
-    font-family: var(--font-sans);
-  }
-  
-  /* Clean dividers */
-  .divider {
-    height: 1px;
-    background-color: var(--color-gray-200);
-    margin: 2rem 0;
   }
 }

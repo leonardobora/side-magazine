@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import sideLogo from "@assets/LOGO_SIDE_BRANCO_1758588504393.png";
 
 interface MinimalLayoutProps {
   children: React.ReactNode;
@@ -61,9 +62,12 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
         <div className="p-6">
           {/* Logo */}
           <div className="mb-12">
-            <h1 className="text-xl font-serif text-black tracking-wide" data-testid="logo">
-              SIDE Magazine
-            </h1>
+            <img 
+              src={sideLogo} 
+              alt="SIDE Magazine" 
+              className="w-24 h-auto" 
+              data-testid="logo"
+            />
           </div>
 
           {/* Navigation Links */}
@@ -204,7 +208,8 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
           <div className="mt-8">
             <div className="text-xs text-gray-500 mb-2 tracking-wide">CONTATO</div>
             <div className="text-sm text-gray-600">
-              post@sidemagazine.com
+              <div>antoniavonhart@gmail.com</div>
+              <div className="mt-1">+55 41 9723-2690</div>
             </div>
           </div>
         </div>

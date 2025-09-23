@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSponsorSchema, insertGallerySchema } from "@shared/schema";
+import { insertSponsorSchema, insertGallerySchema, insertNewsletterSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Sponsors routes
@@ -63,6 +63,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(gallery);
     } catch (error) {
       console.error("Get gallery error:", error);
+      res.status(500).json({ error: "Erro interno do servidor" });
+    }
+  });
+
+  // Newsletter routes
+  app.post("/api/newsletter", async (req, res) => {
+    try {
+      const validatedData = insertNewsletterSchema.parse(req.body);
+      
+      // Check if email already exists
+      const existing = await storage.getNewsletterByEmail(validatedData.email);
+      if (existing) {
+        return res.status(409).json({ 
+          error: "Este email já está inscrito na newsletter" 
+        });
+      }
+      
+      const newsletter = await storage.createNewsletterSubscription(validatedData);
+      res.json({ 
+        message: "Inscrição realizada com sucesso!", 
+        newsletter: { email: newsletter.email, id: newsletter.id } 
+      });
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      res.status(400).json({ 
+        error: "Dados inválidos", 
+        details: error instanceof Error ? error.message : "Erro desconhecido" 
+      });
+    }
+  });
+
+  app.get("/api/newsletter", async (req, res) => {
+    try {
+      const subscriptions = await storage.getNewsletterSubscriptions();
+      res.json(subscriptions);
+    } catch (error) {
+      console.error("Get newsletter subscriptions error:", error);
       res.status(500).json({ error: "Erro interno do servidor" });
     }
   });

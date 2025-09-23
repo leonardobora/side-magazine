@@ -99,65 +99,25 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Gallery Grid */}
-      {displayGalleries.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {displayGalleries.map((gallery) => (
-            <div key={gallery.id} className="group" data-testid={`gallery-${gallery.id}`}>
-              <div className="mb-4">
-                <img
-                  src={gallery.coverImage}
-                  alt={gallery.title}
-                  className="w-full h-64 object-cover border border-gray-200 group-hover:border-black transition-colors"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="font-medium text-lg group-hover:text-gray-600 transition-colors" data-testid={`gallery-title-${gallery.id}`}>
-                  {gallery.title}
-                </h3>
-                
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {gallery.description}
-                </p>
-                
-                <div className="flex items-center gap-4 text-xs text-gray-500 pt-2">
-                  <div className="flex items-center gap-1">
-                    <Image className="w-3 h-3" />
-                    <span>{gallery.imageCount} fotos</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    <span>{new Date(gallery.createdAt).toLocaleDateString('pt-BR')}</span>
-                  </div>
-                </div>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-3 border-gray-300 text-gray-600 hover:border-black hover:text-black"
-                  data-testid={`button-view-${gallery.id}`}
-                >
-                  <Eye className="w-3 h-3 mr-1" />
-                  Ver Galeria
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-16">
-          <div className="max-w-md mx-auto">
-            <Image className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-600 mb-2">
-              Nenhuma galeria encontrada
-            </h3>
-            <p className="text-sm text-gray-500">
-              Não há galerias disponíveis para a categoria selecionada.
+      {/* Construction Notice */}
+      <div className="text-center py-24">
+        <div className="max-w-lg mx-auto">
+          <div className="mb-8">
+            <Image className="w-16 h-16 text-white mx-auto mb-6 opacity-60" />
+            <h2 className="font-serif text-3xl text-white mb-4">
+              EM CONSTRUÇÃO
+            </h2>
+            <p className="text-lg text-white opacity-80 leading-relaxed mb-6">
+              Nossa galeria está sendo cuidadosamente organizada para oferecer 
+              a melhor experiência visual. Em breve você poderá explorar nosso 
+              arquivo completo de imagens e momentos únicos.
+            </p>
+            <p className="text-sm text-white opacity-60">
+              Acompanhe nossas redes sociais para não perder as novidades!
             </p>
           </div>
         </div>
-      )}
+      </div>
 
       {/* Call to Action */}
       <div className="border-t border-gray-200 pt-12">

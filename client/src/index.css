@@ -4,17 +4,17 @@
 
 :root {
   /* Verde menta calcinha theme */
-  --background: #98E4D6;
+  --background: #F7F5F0;
   --foreground: #FFFFFF;
-  --card: #98E4D6;
+  --card: #F7F5F0;
   --card-foreground: #FFFFFF;
-  --popover: #98E4D6;
+  --popover: #F7F5F0;
   --popover-foreground: #FFFFFF;
   --primary: #000000;
   --primary-foreground: #FFFFFF;
-  --secondary: #7DD3C0;
+  --secondary: #F0F8F0;
   --secondary-foreground: #FFFFFF;
-  --muted: #7DD3C0;
+  --muted: #F0F8F0;
   --muted-foreground: rgba(255, 255, 255, 0.8);
   --accent: #000000;
   --accent-foreground: #FFFFFF;
@@ -36,7 +36,7 @@
   }
 
   body {
-    background-color: #98E4D6;
+    background-color: #F7F5F0;
     color: #FFFFFF;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 700;

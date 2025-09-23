@@ -96,7 +96,7 @@ export default function Home() {
             <img
               src={editionCover}
               alt="CORES E FORMAS Edition Cover"
-              className="w-4/5 h-96 object-cover mx-auto"
+              className="w-4/5 h-96 object-cover mx-auto transition-transform duration-300 hover:scale-105"
               data-testid="edition-cover"
             />
           </div>
@@ -148,27 +148,59 @@ export default function Home() {
           Equipe
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 text-sm">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
           <div>
+            <h4 className="font-medium mb-3 text-black">Cofounders</h4>
             <p className="mb-2">
-              <strong>Editora Executiva:</strong> [A definir]
+              <strong>João Lucas Horvath</strong><br/>
+              <span className="text-gray-600">Fotografia, Direção de Arte</span><br/>
+              <a href="https://instagram.com/joluho" className="text-blue-600 hover:underline">@joluho</a>
             </p>
             <p className="mb-2">
-              <strong>Direção de Arte:</strong> [A definir]
+              <strong>Bruna Elena Weber</strong><br/>
+              <span className="text-gray-600">Redação, Produção Executiva</span><br/>
+              <a href="https://instagram.com/brunaelena" className="text-blue-600 hover:underline">@brunaelena</a>
             </p>
             <p className="mb-2">
-              <strong>Curadoria:</strong> [A definir]
+              <strong>Antonia Von Hartenthal</strong><br/>
+              <span className="text-gray-600">Styling, Social Media, Direção Criativa</span><br/>
+              <a href="https://instagram.com/hartenthall" className="text-blue-600 hover:underline">@hartenthall</a>
             </p>
           </div>
           <div>
+            <h4 className="font-medium mb-3 text-black">Direção & Design</h4>
             <p className="mb-2">
-              <strong>Coordenação Editorial:</strong> [A definir]
+              <strong>Luisa Barros</strong><br/>
+              <span className="text-gray-600">Direção de Arte, Design</span><br/>
+              <a href="https://instagram.com/lu_tb" className="text-blue-600 hover:underline">@lu_tb</a>
             </p>
             <p className="mb-2">
-              <strong>Assistente de Pesquisa:</strong> [A definir]
+              <strong>Vitória Corazza</strong><br/>
+              <span className="text-gray-600">Design Gráfico</span><br/>
+              <a href="https://instagram.com/vitoriacoraca" className="text-blue-600 hover:underline">@vitoriacoraca</a>
             </p>
             <p className="mb-2">
-              <strong>Design Gráfico:</strong> [A definir]
+              <strong>Gabriela Maluceli</strong><br/>
+              <span className="text-gray-600">Social Media, Design</span><br/>
+              <a href="https://instagram.com/gabriamaluceli" className="text-blue-600 hover:underline">@gabriamaluceli</a>
+            </p>
+          </div>
+          <div>
+            <h4 className="font-medium mb-3 text-black">Produção & Conteúdo</h4>
+            <p className="mb-2">
+              <strong>Lina Almeida</strong><br/>
+              <span className="text-gray-600">Redação, Revisão, Produção Executiva</span><br/>
+              <a href="https://instagram.com/linalmeida" className="text-blue-600 hover:underline">@linalmeida</a>
+            </p>
+            <p className="mb-2">
+              <strong>Aluah Barbosa</strong><br/>
+              <span className="text-gray-600">Diretoria de Eventos</span><br/>
+              <a href="https://instagram.com/aluahbarb" className="text-blue-600 hover:underline">@aluahbarb</a>
+            </p>
+            <p className="mb-2">
+              <strong>Franco Giorgio</strong><br/>
+              <span className="text-gray-600">Colunista para Social Media</span><br/>
+              <a href="https://instagram.com/fco.stylist" className="text-blue-600 hover:underline">@fco.stylist</a>
             </p>
           </div>
         </div>
@@ -202,7 +234,7 @@ export default function Home() {
                   <strong>Data:</strong> 28 de Setembro, 2025
                 </p>
                 <p>
-                  <strong>Horário:</strong> 19h às 22h
+                  <strong>Horário:</strong> 14h às 21h
                 </p>
                 <p>
                   <strong>Local:</strong> Soma Galeria
@@ -215,16 +247,6 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-6">
-                <h4 className="font-medium mb-2">Programação</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>19h - Abertura e coquetel</li>
-                  <li>19h30 - Apresentação da revista</li>
-                  <li>20h - Conversa com artistas participantes</li>
-                  <li>20h30 - Performance musical: Raffa Chaouiche</li>
-                  <li>21h30 - Encerramento</li>
-                </ul>
-              </div>
             </div>
 
             <div>

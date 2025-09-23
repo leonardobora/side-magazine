@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import sideLogo from "@assets/side_1758591780694.png";
+import sideLogo from "attached_assets/11.png";
 
 interface MinimalLayoutProps {
   children: React.ReactNode;
@@ -61,7 +61,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
       <nav className={`fixed top-0 left-0 w-64 h-full bg-white border-r border-gray-200 z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
         <div className="p-6">
           {/* Logo */}
-          <div className="mb-12">
+          <div className="mt-[20px] mb-[20px]">
             <img 
               src={sideLogo} 
               alt="SIDE Magazine" 

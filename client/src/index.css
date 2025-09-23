@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* Verde menta calcinha theme */
-  --background: #F7F5F0;
-  --foreground: #FFFFFF;
-  --card: #F7F5F0;
-  --card-foreground: #FFFFFF;
-  --popover: #F7F5F0;
-  --popover-foreground: #FFFFFF;
+  /* Standard white background theme */
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
   --primary: #000000;
   --primary-foreground: #FFFFFF;
-  --secondary: #F0F8F0;
-  --secondary-foreground: #FFFFFF;
-  --muted: #F0F8F0;
-  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --secondary: #F5F5F5;
+  --secondary-foreground: #000000;
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
   --accent: #000000;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(255, 255, 255, 0.3);
-  --input: rgba(255, 255, 255, 0.1);
+  --border: #E5E5E5;
+  --input: #FFFFFF;
   --ring: #000000;
   --radius: 0rem;
   
@@ -36,8 +36,8 @@
   }
 
   body {
-    background-color: #F7F5F0;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -51,86 +51,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Archivo Black', sans-serif;
     font-weight: 900;
-    color: #FFFFFF;
-  }
-  
-  /* Override default text colors */
-  .text-black {
-    color: #FFFFFF !important;
-  }
-  
-  .text-gray-600 {
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
-  
-  .text-gray-500 {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-  
-  .text-gray-400 {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  
-  /* Update borders for visibility */
-  .border-gray-200 {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-  }
-  
-  .border-gray-300 {
-    border-color: rgba(255, 255, 255, 0.5) !important;
-  }
-  
-  /* Button styles */
-  .bg-black {
-    background-color: #000000 !important;
-    color: #FFFFFF !important;
-  }
-  
-  .hover\:bg-gray-800:hover {
-    background-color: #1f2937 !important;
-  }
-  
-  .bg-red-600 {
-    background-color: #DC2626 !important;
-  }
-  
-  .hover\:bg-red-700:hover {
-    background-color: #B91C1C !important;
-  }
-  
-  /* Input styles */
-  input, textarea {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    color: #FFFFFF !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-  }
-  
-  input::placeholder, textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  
-  /* Focus styles */
-  .focus\:border-black:focus {
-    border-color: #FFFFFF !important;
-    outline: none;
-  }
-  
-  .focus\:outline-none:focus {
-    outline: none;
-  }
-  
-  /* Link styles */
-  .text-blue-600 {
-    color: #FFFFFF !important;
-    text-decoration: underline;
-  }
-  
-  .hover\:underline:hover {
-    text-decoration: underline;
-  }
-  
-  .hover\:text-black:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: #000000;
   }
 }
 
@@ -170,7 +91,7 @@
   /* Divider */
   .divider {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: #E5E5E5;
     margin: 2rem 0;
   }
   
@@ -187,7 +108,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
     animation: loading 1.5s infinite;
   }
   

@@ -4,3 +4,45 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Protect sensitive files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.crt
+*.cer
+*.csr
+
+# Prevent accidental exposure of server code
+server/**
+!server/
+# Allow specific server files if needed for deployment
+# server/index.js
+# server/routes.js
+
+# Database and secrets
+*.db
+*.sqlite
+*.sqlite3
+config/database.yml
+config/secrets.yml
+
+# IDE and system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts that should not be exposed
+build/
+dist/
+!dist/public/
+
+# Temporary files
+tmp/
+temp/
+.tmp/

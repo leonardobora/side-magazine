@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type Sponsor, type InsertSponsor, type Gallery, type InsertGallery, type Newsletter, type InsertNewsletter, users, sponsors, galleries, newsletters } from "@shared/schema";
+import { type User, type InsertUser, type Sponsor, type InsertSponsor, type Gallery, type InsertGallery, type Newsletter, type InsertNewsletter, users, sponsors, galleries, newsletters } from "./schema";
 import { randomUUID } from "crypto";
 import { db } from "./db";
 import { eq } from "drizzle-orm";

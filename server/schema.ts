@@ -1,3 +1,6 @@
+// Server-only database schema definitions
+// This file should NEVER be imported by the frontend
+
 import { sql } from "drizzle-orm";
 import { pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";

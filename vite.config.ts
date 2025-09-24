@@ -22,7 +22,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@shared": path.resolve(import.meta.dirname, "shared", "types.ts"), // Use frontend-safe types only
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
@@ -30,11 +30,35 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Security: Ensure no backend code is included in the frontend build
+    rollupOptions: {
+      external: [
+        // Explicitly exclude all server-side modules
+        'express',
+        'drizzle-orm',
+        'drizzle-kit',
+        '@neondatabase/serverless',
+        'tsx',
+        'esbuild',
+        // Exclude server files by pattern
+        /^node:.*/,
+        /^server\/.*/,
+      ],
+    },
   },
   server: {
     fs: {
       strict: true,
-      deny: ["**/.*"],
+      // Deny access to sensitive files and directories
+      deny: [
+        "**/.*",           // Hidden files (like .env) 
+        "**/server/**",    // Server directory
+        "**/node_modules/**", // Node modules
+        "**/*.env*",       // Environment files
+        "**/dist/**",      // Build output
+        "**/migrations/**", // Database migrations
+        "**/drizzle.config.*", // Database config
+      ],
     },
   },
 });

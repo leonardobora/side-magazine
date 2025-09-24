@@ -12,6 +12,16 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
+  // In static mode, simulate successful responses to prevent errors
+  if (typeof __STATIC_MODE__ !== 'undefined' && __STATIC_MODE__) {
+    console.warn(`API call to ${url} disabled in static mode`);
+    // Return a mock successful response
+    return new Response(JSON.stringify({ success: true, message: "Static mode - API disabled" }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
   const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
@@ -29,6 +39,12 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
+    // In static mode, return null to avoid API calls
+    if (typeof __STATIC_MODE__ !== 'undefined' && __STATIC_MODE__) {
+      console.warn(`Query to ${queryKey.join("/")} disabled in static mode`);
+      return null;
+    }
+
     const res = await fetch(queryKey.join("/") as string, {
       credentials: "include",
     });

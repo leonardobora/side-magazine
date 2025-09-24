@@ -52,9 +52,12 @@ export default function Sponsors() {
     onSuccess: () => {
       setIsSubmitted(true);
       form.reset();
+      const isStaticMode = typeof __STATIC_MODE__ !== 'undefined' && __STATIC_MODE__;
       toast({
         title: "Formulário enviado com sucesso!",
-        description: "Entraremos em contato em breve para discutir as oportunidades de parceria.",
+        description: isStaticMode 
+          ? "Envio simulado (modo estático) - Em produção, entraremos em contato em breve."
+          : "Entraremos em contato em breve para discutir as oportunidades de parceria.",
       });
     },
     onError: () => {

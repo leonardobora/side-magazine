@@ -15,12 +15,17 @@ export default function Home() {
   const newsletterMutation = useMutation({
     mutationFn: (email: string) => apiRequest("POST", "/api/newsletter", { email }),
     onSuccess: () => {
+      const isStaticMode = typeof __STATIC_MODE__ !== 'undefined' && __STATIC_MODE__;
       toast({
         title: "Sucesso!",
-        description: "Você foi inscrito na nossa newsletter.",
+        description: isStaticMode 
+          ? "Inscrição na newsletter simulada (modo estático)"
+          : "Você foi inscrito na nossa newsletter.",
       });
       setEmail("");
-      queryClient.invalidateQueries({ queryKey: ["/api/newsletter"] });
+      if (!isStaticMode) {
+        queryClient.invalidateQueries({ queryKey: ["/api/newsletter"] });
+      }
     },
     onError: (error: any) => {
       toast({

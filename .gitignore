@@ -19,9 +19,13 @@ vite.config.ts.*
 # Prevent accidental exposure of server code
 server/**
 !server/
-# Allow specific server files if needed for deployment
-# server/index.js
-# server/routes.js
+# Allow specific essential server files
+!server/index.ts
+!server/routes.ts  
+!server/storage.ts
+!server/vite.ts
+!server/db.ts
+!server/schema.ts
 
 # Database and secrets
 *.db

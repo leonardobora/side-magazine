@@ -3,6 +3,21 @@ import { randomUUID } from "crypto";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
+// Utility functions
+export function validateEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Additional check for consecutive dots
+  return emailRegex.test(email) && !email.includes('..');
+}
+
+export function generateId(): string {
+  return randomUUID();
+}
+
+export function sanitizeEmail(email: string): string {
+  return email.toLowerCase().trim();
+}
+
 // modify the interface with any CRUD methods
 // you might need
 

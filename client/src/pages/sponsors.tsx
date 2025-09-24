@@ -54,7 +54,8 @@ export default function Sponsors() {
       form.reset();
       toast({
         title: "Formulário enviado com sucesso!",
-        description: "Entraremos em contato em breve para discutir as oportunidades de parceria.",
+        description:
+          "Entraremos em contato em breve para discutir as oportunidades de parceria.",
       });
     },
     onError: () => {
@@ -74,13 +75,17 @@ export default function Sponsors() {
     return (
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="text-center py-16">
-          <h1 className="font-serif text-3xl md:text-4xl text-black mb-6" data-testid="success-title">
+          <h1
+            className="font-serif text-3xl md:text-4xl text-black mb-6"
+            data-testid="success-title"
+          >
             Obrigado pelo seu interesse
           </h1>
           <p className="text-gray-600 text-lg mb-8">
-            Recebemos suas informações e entraremos em contato em breve para discutir as oportunidades de parceria.
+            Recebemos suas informações e entraremos em contato em breve para
+            discutir as oportunidades de parceria.
           </p>
-          <Button 
+          <Button
             onClick={() => setIsSubmitted(false)}
             variant="outline"
             className="border-black text-black hover:bg-black hover:text-white"
@@ -97,13 +102,16 @@ export default function Sponsors() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       {/* Header */}
       <header className="mb-16">
-        <h1 className="font-serif text-4xl md:text-5xl text-black mb-6" data-testid="partnerships-title">
+        <h1
+          className="font-serif text-4xl md:text-5xl text-black mb-6"
+          data-testid="partnerships-title"
+        >
           Parcerias
         </h1>
         <div className="w-full h-px bg-gray-200 mb-8"></div>
         <p className="text-lg text-gray-600 leading-relaxed">
-          Conecte sua marca com a cultura visual contemporânea. A Side Magazine 
-          oferece oportunidades únicas de parceria para empresas que valorizam 
+          Conecte sua marca com a cultura visual contemporânea. A Side Magazine
+          oferece oportunidades únicas de parceria para empresas que valorizam
           arte, inovação e criatividade.
         </p>
       </header>
@@ -111,30 +119,35 @@ export default function Sponsors() {
       <div className="grid md:grid-cols-2 gap-16">
         {/* Information Section */}
         <div>
-          <h2 className="font-serif text-2xl text-black mb-8">Por que ser nosso parceiro?</h2>
-          
+          <h2 className="font-serif text-2xl text-black mb-8">
+            Por que ser nosso parceiro?
+          </h2>
+
           <div className="space-y-8">
             <div>
               <h3 className="font-medium text-lg mb-3">Alcance Qualificado</h3>
               <p className="text-gray-600 leading-relaxed">
-                Conecte-se com uma audiência engajada de profissionais criativos, 
-                artistas e entusiastas da cultura visual contemporânea.
+                Conecte-se com uma audiência engajada de profissionais
+                criativos, artistas e entusiastas da cultura visual
+                contemporânea.
               </p>
             </div>
-            
+
             <div>
-              <h3 className="font-medium text-lg mb-3">Visibilidade Estratégica</h3>
+              <h3 className="font-medium text-lg mb-3">
+                Visibilidade Estratégica
+              </h3>
               <p className="text-gray-600 leading-relaxed">
-                Posicione sua marca em eventos exclusivos, edições especiais 
-                e ações de alto impacto cultural na cena artística de Curitiba.
+                Posicione sua marca em eventos exclusivos, edições especiais e
+                ações de alto impacto cultural na cena artística de Curitiba.
               </p>
             </div>
-            
+
             <div>
               <h3 className="font-medium text-lg mb-3">Colaboração Criativa</h3>
               <p className="text-gray-600 leading-relaxed">
-                Participe de projetos únicos que unem arte, design e inovação 
-                em experiências memoráveis para públicos especializados.
+                Participe de projetos únicos que unem arte, design e inovação em
+                experiências memoráveis para públicos especializados.
               </p>
             </div>
           </div>
@@ -153,8 +166,10 @@ export default function Sponsors() {
 
         {/* Form Section */}
         <div>
-          <h2 className="font-serif text-2xl text-black mb-8">Formulário de Interesse</h2>
-          
+          <h2 className="font-serif text-2xl text-black mb-8">
+            Formulário de Interesse
+          </h2>
+
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -162,7 +177,9 @@ export default function Sponsors() {
                 name="companyName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">Nome da Empresa *</FormLabel>
+                    <FormLabel className="text-sm font-medium">
+                      Nome da Empresa *
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Ex: Empresa LTDA"
@@ -181,7 +198,9 @@ export default function Sponsors() {
                 name="contactName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">Nome do Contato *</FormLabel>
+                    <FormLabel className="text-sm font-medium">
+                      Nome do Contato *
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Seu nome completo"
@@ -201,7 +220,9 @@ export default function Sponsors() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-medium">Email *</FormLabel>
+                      <FormLabel className="text-sm font-medium">
+                        Email *
+                      </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -221,7 +242,9 @@ export default function Sponsors() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-medium">Telefone</FormLabel>
+                      <FormLabel className="text-sm font-medium">
+                        Telefone
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="(41) 99999-9999"
@@ -241,10 +264,12 @@ export default function Sponsors() {
                 name="partnershipType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">Tipo de Parceria *</FormLabel>
+                    <FormLabel className="text-sm font-medium">
+                      Tipo de Parceria *
+                    </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger 
+                        <SelectTrigger
                           className="border-gray-300 focus:border-black focus:ring-0"
                           data-testid="select-partnership-type"
                         >
@@ -252,11 +277,21 @@ export default function Sponsors() {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="event-sponsor">Patrocínio de Eventos</SelectItem>
-                        <SelectItem value="magazine-sponsor">Apoio à Revista</SelectItem>
-                        <SelectItem value="editorial-partnership">Parceria Editorial</SelectItem>
-                        <SelectItem value="institutional-support">Apoio Institucional</SelectItem>
-                        <SelectItem value="creative-collaboration">Colaboração Criativa</SelectItem>
+                        <SelectItem value="event-sponsor">
+                          Patrocínio de Eventos
+                        </SelectItem>
+                        <SelectItem value="magazine-sponsor">
+                          Apoio à Revista
+                        </SelectItem>
+                        <SelectItem value="editorial-partnership">
+                          Parceria Editorial
+                        </SelectItem>
+                        <SelectItem value="institutional-support">
+                          Apoio Institucional
+                        </SelectItem>
+                        <SelectItem value="creative-collaboration">
+                          Colaboração Criativa
+                        </SelectItem>
                         <SelectItem value="other">Outro</SelectItem>
                       </SelectContent>
                     </Select>
@@ -270,7 +305,9 @@ export default function Sponsors() {
                 name="budget"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">Orçamento Aproximado</FormLabel>
+                    <FormLabel className="text-sm font-medium">
+                      Orçamento Aproximado
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Ex: R$ 10.000 - R$ 50.000"
@@ -289,7 +326,9 @@ export default function Sponsors() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">Mensagem *</FormLabel>
+                    <FormLabel className="text-sm font-medium">
+                      Mensagem *
+                    </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Conte-nos mais sobre seus objetivos e como podemos colaborar..."
@@ -309,7 +348,9 @@ export default function Sponsors() {
                 className="w-full bg-black text-white hover:bg-gray-800 py-3"
                 data-testid="button-submit"
               >
-                {createSponsorMutation.isPending ? "Enviando..." : "Enviar Proposta"}
+                {createSponsorMutation.isPending
+                  ? "Enviando..."
+                  : "Enviar Proposta"}
               </Button>
             </form>
           </Form>
@@ -322,7 +363,8 @@ export default function Sponsors() {
           <strong>Contato direto:</strong> antoniavonhart@gmail.com
         </p>
         <p className="mt-2">
-          Todas as propostas são analisadas individualmente. Retornaremos em até 5 dias úteis.
+          Todas as propostas são analisadas individualmente. Retornaremos em até
+          5 dias úteis.
         </p>
       </div>
     </div>

@@ -16,7 +16,10 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
     return false;
   };
 
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     if (location !== "/") {
       window.location.href = "/" + href;
@@ -24,7 +27,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
     }
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -50,7 +53,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
           data-testid="mobile-menu-overlay"
@@ -58,14 +61,16 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
       )}
 
       {/* Sidebar Navigation */}
-      <nav className={`fixed top-0 left-0 w-64 h-full bg-white border-r border-gray-200 z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
+      <nav
+        className={`fixed top-0 left-0 w-64 h-full bg-white border-r border-gray-200 z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+      >
         <div className="p-6">
           {/* Logo */}
           <div className="mb-12">
-            <img 
-              src={sideLogo} 
-              alt="SIDE Magazine" 
-              className="w-24 h-auto" 
+            <img
+              src={sideLogo}
+              alt="SIDE Magazine"
+              className="w-24 h-auto"
               data-testid="logo"
             />
           </div>
@@ -73,7 +78,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
           {/* Navigation Links */}
           <ul className="space-y-4 text-sm font-medium tracking-wide">
             <li>
-              <Link 
+              <Link
                 href="/"
                 className={`block py-1 transition-colors ${isActiveRoute("/") ? "text-black" : "text-gray-600 hover:text-black"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -83,11 +88,11 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </Link>
             </li>
             <li>
-              <a 
+              <a
                 href="#about"
                 className="block py-1 text-gray-600 hover:text-black transition-colors"
                 onClick={(e) => {
-                  handleSmoothScroll(e, '#about');
+                  handleSmoothScroll(e, "#about");
                   setIsMobileMenuOpen(false);
                 }}
                 data-testid="nav-about"
@@ -96,11 +101,11 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </a>
             </li>
             <li>
-              <a 
+              <a
                 href="#editions"
                 className="block py-1 text-gray-600 hover:text-black transition-colors"
                 onClick={(e) => {
-                  handleSmoothScroll(e, '#editions');
+                  handleSmoothScroll(e, "#editions");
                   setIsMobileMenuOpen(false);
                 }}
                 data-testid="nav-editions"
@@ -109,11 +114,11 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </a>
             </li>
             <li>
-              <a 
+              <a
                 href="#events"
                 className="block py-1 text-gray-600 hover:text-black transition-colors"
                 onClick={(e) => {
-                  handleSmoothScroll(e, '#events');
+                  handleSmoothScroll(e, "#events");
                   setIsMobileMenuOpen(false);
                 }}
                 data-testid="nav-events"
@@ -122,7 +127,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </a>
             </li>
             <li>
-              <Link 
+              <Link
                 href="/galeria"
                 className={`block py-1 transition-colors ${isActiveRoute("/galeria") ? "text-black" : "text-gray-600 hover:text-black"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -132,7 +137,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </Link>
             </li>
             <li>
-              <Link 
+              <Link
                 href="/parcerias"
                 className={`block py-1 transition-colors ${isActiveRoute("/parcerias") ? "text-black" : "text-gray-600 hover:text-black"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -142,11 +147,11 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               </Link>
             </li>
             <li>
-              <a 
+              <a
                 href="#subscribe"
                 className="block py-1 text-gray-600 hover:text-black transition-colors"
                 onClick={(e) => {
-                  handleSmoothScroll(e, '#subscribe');
+                  handleSmoothScroll(e, "#subscribe");
                   setIsMobileMenuOpen(false);
                 }}
                 data-testid="nav-subscribe"
@@ -160,7 +165,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
           <div className="mt-12 pt-6 border-t border-gray-200">
             <div className="text-xs text-gray-500 mb-3 tracking-wide">SIGA</div>
             <div className="space-y-2 text-sm">
-              <a 
+              <a
                 href="https://www.instagram.com/side.magazine"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -169,7 +174,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               >
                 @side.magazine
               </a>
-              <a 
+              <a
                 href="https://www.instagram.com/somagaleria"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -178,7 +183,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
               >
                 @somagaleria
               </a>
-              <a 
+              <a
                 href="https://www.instagram.com/pixta.me"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -206,7 +211,9 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
 
           {/* Contact */}
           <div className="mt-8">
-            <div className="text-xs text-gray-500 mb-2 tracking-wide">CONTATO</div>
+            <div className="text-xs text-gray-500 mb-2 tracking-wide">
+              CONTATO
+            </div>
             <div className="text-sm text-gray-600">
               <div>antoniavonhart@gmail.com</div>
               <div className="mt-1">+55 41 9723-2690</div>
@@ -216,9 +223,7 @@ export default function MinimalLayout({ children }: MinimalLayoutProps) {
       </nav>
 
       {/* Main Content */}
-      <main className="md:ml-64 min-h-screen">
-        {children}
-      </main>
+      <main className="md:ml-64 min-h-screen">{children}</main>
     </div>
   );
 }

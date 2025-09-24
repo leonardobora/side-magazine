@@ -1,4 +1,17 @@
-import { type User, type InsertUser, type Sponsor, type InsertSponsor, type Gallery, type InsertGallery, type Newsletter, type InsertNewsletter, users, sponsors, galleries, newsletters } from "@shared/schema";
+import {
+  type User,
+  type InsertUser,
+  type Sponsor,
+  type InsertSponsor,
+  type Gallery,
+  type InsertGallery,
+  type Newsletter,
+  type InsertNewsletter,
+  users,
+  sponsors,
+  galleries,
+  newsletters,
+} from "@shared/schema";
 import { randomUUID } from "crypto";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
@@ -10,18 +23,20 @@ export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   // Sponsors
   createSponsor(sponsor: InsertSponsor): Promise<Sponsor>;
   getSponsors(): Promise<Sponsor[]>;
-  
-  // Galleries 
+
+  // Galleries
   createGallery(gallery: InsertGallery): Promise<Gallery>;
   getGalleries(): Promise<Gallery[]>;
   getGallery(id: string): Promise<Gallery | undefined>;
-  
+
   // Newsletter
-  createNewsletterSubscription(newsletter: InsertNewsletter): Promise<Newsletter>;
+  createNewsletterSubscription(
+    newsletter: InsertNewsletter
+  ): Promise<Newsletter>;
   getNewsletterSubscriptions(): Promise<Newsletter[]>;
   getNewsletterByEmail(email: string): Promise<Newsletter | undefined>;
 }
@@ -45,7 +60,7 @@ export class MemStorage implements IStorage {
 
   async getUserByUsername(username: string): Promise<User | undefined> {
     return Array.from(this.users.values()).find(
-      (user) => user.username === username,
+      (user) => user.username === username
     );
   }
 
@@ -59,12 +74,12 @@ export class MemStorage implements IStorage {
   // Sponsors
   async createSponsor(insertSponsor: InsertSponsor): Promise<Sponsor> {
     const id = randomUUID();
-    const sponsor: Sponsor = { 
-      ...insertSponsor, 
+    const sponsor: Sponsor = {
+      ...insertSponsor,
       id,
       phone: insertSponsor.phone || null,
       budget: insertSponsor.budget || null,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
     this.sponsors.set(id, sponsor);
     return sponsor;
@@ -79,14 +94,14 @@ export class MemStorage implements IStorage {
   // Galleries
   async createGallery(insertGallery: InsertGallery): Promise<Gallery> {
     const id = randomUUID();
-    const gallery: Gallery = { 
-      ...insertGallery, 
+    const gallery: Gallery = {
+      ...insertGallery,
       id,
       description: insertGallery.description || null,
       coverImage: insertGallery.coverImage || null,
       images: insertGallery.images || null,
       isPublished: insertGallery.isPublished || "draft",
-      createdAt: new Date()
+      createdAt: new Date(),
     };
     this.galleries.set(id, gallery);
     return gallery;
@@ -103,7 +118,9 @@ export class MemStorage implements IStorage {
   }
 
   // Newsletter
-  async createNewsletterSubscription(insertNewsletter: InsertNewsletter): Promise<Newsletter> {
+  async createNewsletterSubscription(
+    insertNewsletter: InsertNewsletter
+  ): Promise<Newsletter> {
     // Check if email already exists
     const existing = Array.from(this.newsletters.values()).find(
       (newsletter) => newsletter.email === insertNewsletter.email
@@ -113,11 +130,11 @@ export class MemStorage implements IStorage {
     }
 
     const id = randomUUID();
-    const newsletter: Newsletter = { 
-      ...insertNewsletter, 
+    const newsletter: Newsletter = {
+      ...insertNewsletter,
       id,
       status: "active",
-      createdAt: new Date()
+      createdAt: new Date(),
     };
     this.newsletters.set(id, newsletter);
     return newsletter;
@@ -144,15 +161,15 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.username, username));
     return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(insertUser)
-      .returning();
+    const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
@@ -193,12 +210,17 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getGallery(id: string): Promise<Gallery | undefined> {
-    const [gallery] = await db.select().from(galleries).where(eq(galleries.id, id));
+    const [gallery] = await db
+      .select()
+      .from(galleries)
+      .where(eq(galleries.id, id));
     return gallery || undefined;
   }
 
   // Newsletter
-  async createNewsletterSubscription(insertNewsletter: InsertNewsletter): Promise<Newsletter> {
+  async createNewsletterSubscription(
+    insertNewsletter: InsertNewsletter
+  ): Promise<Newsletter> {
     const [newsletter] = await db
       .insert(newsletters)
       .values(insertNewsletter)
@@ -211,7 +233,10 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getNewsletterByEmail(email: string): Promise<Newsletter | undefined> {
-    const [newsletter] = await db.select().from(newsletters).where(eq(newsletters.email, email));
+    const [newsletter] = await db
+      .select()
+      .from(newsletters)
+      .where(eq(newsletters.email, email));
     return newsletter || undefined;
   }
 }

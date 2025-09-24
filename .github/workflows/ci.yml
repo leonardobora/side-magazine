@@ -1,0 +1,65 @@
+name: CI (Continuous Integration)
+
+# Triggers do workflow
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  ci:
+    name: Build, Lint and Type Check
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run ESLint
+      run: npm run lint
+      
+    - name: Run TypeScript type checking
+      run: npm run check
+      
+    - name: Build frontend and backend
+      run: npm run build
+      
+    - name: Verify build artifacts
+      run: |
+        echo "Checking build artifacts..."
+        ls -la dist/
+        ls -la dist/public/
+        echo "Build completed successfully!"
+
+  # Job para notificar se algum step falhar
+  notify-failure:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    needs: ci
+    if: failure()
+    
+    steps:
+    - name: Notify failure
+      run: |
+        echo "❌ CI Pipeline Failed!"
+        echo "The Pull Request contains errors that must be fixed:"
+        echo "- Lint errors or warnings"
+        echo "- TypeScript type checking errors"
+        echo "- Build failures"
+        echo ""
+        echo "Please review the failed steps above and fix the issues before merging."
+        exit 1

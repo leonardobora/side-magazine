@@ -13,7 +13,8 @@ export default function Home() {
   const queryClient = useQueryClient();
 
   const newsletterMutation = useMutation({
-    mutationFn: (email: string) => apiRequest("POST", "/api/newsletter", { email }),
+    mutationFn: (email: string) =>
+      apiRequest("POST", "/api/newsletter", { email }),
     onSuccess: () => {
       toast({
         title: "Sucesso!",
@@ -74,10 +75,10 @@ export default function Home() {
       {/* Main Title */}
       <header className="mb-16 fade-in">
         <div className="flex justify-center mb-6">
-          <img 
-            src={sideLogo} 
-            alt="SIDE Magazine" 
-            className="w-56 md:w-72 h-auto" 
+          <img
+            src={sideLogo}
+            alt="SIDE Magazine"
+            className="w-56 md:w-72 h-auto"
             data-testid="main-logo"
           />
         </div>
@@ -194,55 +195,122 @@ export default function Home() {
           <div>
             <h4 className="font-medium mb-3 text-black">Cofounders</h4>
             <p className="mb-2">
-              <strong>João Lucas Horvath</strong><br/>
-              <span className="text-gray-600">Fotografia, Direção de Arte</span><br/>
-              <a href="https://instagram.com/joluho" className="text-blue-600 hover:underline">@joluho</a>
+              <strong>João Lucas Horvath</strong>
+              <br />
+              <span className="text-gray-600">Fotografia, Direção de Arte</span>
+              <br />
+              <a
+                href="https://instagram.com/joluho"
+                className="text-blue-600 hover:underline"
+              >
+                @joluho
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Bruna Elena Weber</strong><br/>
-              <span className="text-gray-600">Redação, Produção Executiva</span><br/>
-              <a href="https://instagram.com/brunaelena" className="text-blue-600 hover:underline">@brunaelena</a>
+              <strong>Bruna Elena Weber</strong>
+              <br />
+              <span className="text-gray-600">Redação, Produção Executiva</span>
+              <br />
+              <a
+                href="https://instagram.com/brunaelena"
+                className="text-blue-600 hover:underline"
+              >
+                @brunaelena
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Antonia Von Hartenthal</strong><br/>
-              <span className="text-gray-600">Styling, Social Media, Direção Criativa</span><br/>
-              <a href="https://instagram.com/hartenthall" className="text-blue-600 hover:underline">@hartenthall</a>
+              <strong>Antonia Von Hartenthal</strong>
+              <br />
+              <span className="text-gray-600">
+                Styling, Social Media, Direção Criativa
+              </span>
+              <br />
+              <a
+                href="https://instagram.com/hartenthall"
+                className="text-blue-600 hover:underline"
+              >
+                @hartenthall
+              </a>
             </p>
           </div>
           <div>
             <h4 className="font-medium mb-3 text-black">Direção & Design</h4>
             <p className="mb-2">
-              <strong>Luisa Barros</strong><br/>
-              <span className="text-gray-600">Direção de Arte, Design</span><br/>
-              <a href="https://instagram.com/lu_tb" className="text-blue-600 hover:underline">@lu_tb</a>
+              <strong>Luisa Barros</strong>
+              <br />
+              <span className="text-gray-600">Direção de Arte, Design</span>
+              <br />
+              <a
+                href="https://instagram.com/lu_tb"
+                className="text-blue-600 hover:underline"
+              >
+                @lu_tb
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Vitória Corazza</strong><br/>
-              <span className="text-gray-600">Design Gráfico</span><br/>
-              <a href="https://instagram.com/vitoriacoraca" className="text-blue-600 hover:underline">@vitoriacoraca</a>
+              <strong>Vitória Corazza</strong>
+              <br />
+              <span className="text-gray-600">Design Gráfico</span>
+              <br />
+              <a
+                href="https://instagram.com/vitoriacoraca"
+                className="text-blue-600 hover:underline"
+              >
+                @vitoriacoraca
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Gabriela Maluceli</strong><br/>
-              <span className="text-gray-600">Social Media, Design</span><br/>
-              <a href="https://instagram.com/gabriamaluceli" className="text-blue-600 hover:underline">@gabriamaluceli</a>
+              <strong>Gabriela Maluceli</strong>
+              <br />
+              <span className="text-gray-600">Social Media, Design</span>
+              <br />
+              <a
+                href="https://instagram.com/gabriamaluceli"
+                className="text-blue-600 hover:underline"
+              >
+                @gabriamaluceli
+              </a>
             </p>
           </div>
           <div>
             <h4 className="font-medium mb-3 text-black">Produção & Conteúdo</h4>
             <p className="mb-2">
-              <strong>Lina Almeida</strong><br/>
-              <span className="text-gray-600">Redação, Revisão, Produção Executiva</span><br/>
-              <a href="https://instagram.com/linalmeida" className="text-blue-600 hover:underline">@linalmeida</a>
+              <strong>Lina Almeida</strong>
+              <br />
+              <span className="text-gray-600">
+                Redação, Revisão, Produção Executiva
+              </span>
+              <br />
+              <a
+                href="https://instagram.com/linalmeida"
+                className="text-blue-600 hover:underline"
+              >
+                @linalmeida
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Aluah Barbosa</strong><br/>
-              <span className="text-gray-600">Diretoria de Eventos</span><br/>
-              <a href="https://instagram.com/aluahbarb" className="text-blue-600 hover:underline">@aluahbarb</a>
+              <strong>Aluah Barbosa</strong>
+              <br />
+              <span className="text-gray-600">Diretoria de Eventos</span>
+              <br />
+              <a
+                href="https://instagram.com/aluahbarb"
+                className="text-blue-600 hover:underline"
+              >
+                @aluahbarb
+              </a>
             </p>
             <p className="mb-2">
-              <strong>Franco Giorgio</strong><br/>
-              <span className="text-gray-600">Colunista para Social Media</span><br/>
-              <a href="https://instagram.com/fco.stylist" className="text-blue-600 hover:underline">@fco.stylist</a>
+              <strong>Franco Giorgio</strong>
+              <br />
+              <span className="text-gray-600">Colunista para Social Media</span>
+              <br />
+              <a
+                href="https://instagram.com/fco.stylist"
+                className="text-blue-600 hover:underline"
+              >
+                @fco.stylist
+              </a>
             </p>
           </div>
         </div>
@@ -282,11 +350,12 @@ export default function Home() {
                   <strong>Local:</strong> Soma Galeria
                 </p>
                 <p>
-                  <strong>Endereço:</strong> R. Mal José B Bormann, 730 - Batel, Curitiba - PR, 80730-350
+                  <strong>Endereço:</strong> R. Mal José B Bormann, 730 - Batel,
+                  Curitiba - PR, 80730-350
                 </p>
                 <p>
-                  <strong>Entrada:</strong> 
-                  <a 
+                  <strong>Entrada:</strong>
+                  <a
                     href="https://pixta.me/events/lancamento-side01"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -296,7 +365,6 @@ export default function Home() {
                   </a>
                 </p>
               </div>
-
             </div>
 
             <div>
@@ -338,7 +406,10 @@ export default function Home() {
           exclusivos da Side Magazine diretamente em seu email.
         </p>
 
-        <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
+        <form
+          onSubmit={handleNewsletterSubmit}
+          className="flex flex-col sm:flex-row gap-4 max-w-md"
+        >
           <input
             type="email"
             placeholder="seu@email.com"

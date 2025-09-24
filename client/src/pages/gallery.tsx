@@ -1,80 +1,88 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
-import { Eye, Calendar, Image } from "lucide-react";
+import { Image } from "lucide-react";
 
 // Mock data - será substituído por dados reais do backend no futuro
 const mockGalleries = [
   {
     id: "1",
     title: "Lançamento CORES E FORMAS",
-    description: "Registro fotográfico do evento de lançamento da Edição 01 na Soma Galeria",
+    description:
+      "Registro fotográfico do evento de lançamento da Edição 01 na Soma Galeria",
     coverImage: "/api/placeholder/400/300",
     imageCount: 24,
     createdAt: "2025-09-28",
-    category: "evento"
+    category: "evento",
   },
   {
-    id: "2", 
+    id: "2",
     title: "Bastidores da Produção",
     description: "Processo criativo e preparação da primeira edição da revista",
     coverImage: "/api/placeholder/400/300",
     imageCount: 18,
     createdAt: "2025-09-15",
-    category: "bastidores"
+    category: "bastidores",
   },
   {
     id: "3",
     title: "Ensaio Editorial",
-    description: "Fotografias autorais dos artistas em destaque na primeira edição",
-    coverImage: "/api/placeholder/400/300", 
+    description:
+      "Fotografias autorais dos artistas em destaque na primeira edição",
+    coverImage: "/api/placeholder/400/300",
     imageCount: 12,
     createdAt: "2025-09-10",
-    category: "editorial"
+    category: "editorial",
   },
   {
     id: "4",
     title: "Processo Criativo",
-    description: "Documentação do desenvolvimento visual e conceitual da revista",
+    description:
+      "Documentação do desenvolvimento visual e conceitual da revista",
     coverImage: "/api/placeholder/400/300",
     imageCount: 15,
     createdAt: "2025-09-01",
-    category: "bastidores"
-  }
+    category: "bastidores",
+  },
 ];
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   // Query placeholder - será implementada quando conectar com o backend
-  const { data: galleries, isLoading } = useQuery({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { data: _galleries, isLoading: _isLoading } = useQuery({
     queryKey: ["/api/galleries"],
     queryFn: () => Promise.resolve(mockGalleries),
-    enabled: false // Desabilitado até implementar backend
+    enabled: false, // Desabilitado até implementar backend
   });
 
-  const displayGalleries = mockGalleries.filter(gallery => 
-    selectedCategory === "all" || gallery.category === selectedCategory
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _displayGalleries = mockGalleries.filter(
+    (gallery) =>
+      selectedCategory === "all" || gallery.category === selectedCategory
   );
 
   const categories = [
     { value: "all", label: "Todos" },
     { value: "evento", label: "Eventos" },
     { value: "bastidores", label: "Bastidores" },
-    { value: "editorial", label: "Editorial" }
+    { value: "editorial", label: "Editorial" },
   ];
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       {/* Header */}
       <header className="mb-16">
-        <h1 className="font-serif text-4xl md:text-5xl text-black mb-6" data-testid="gallery-title">
+        <h1
+          className="font-serif text-4xl md:text-5xl text-black mb-6"
+          data-testid="gallery-title"
+        >
           Galeria
         </h1>
         <div className="w-full h-px bg-gray-200 mb-8"></div>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-          Explore os momentos únicos, bastidores e registros visuais dos eventos 
-          e projetos da Side Magazine. Uma documentação visual do nosso processo 
+          Explore os momentos únicos, bastidores e registros visuais dos eventos
+          e projetos da Side Magazine. Uma documentação visual do nosso processo
           criativo e das experiências que criamos.
         </p>
       </header>
@@ -108,8 +116,8 @@ export default function Gallery() {
               EM CONSTRUÇÃO
             </h2>
             <p className="text-lg text-white opacity-80 leading-relaxed mb-6">
-              Nossa galeria está sendo cuidadosamente organizada para oferecer 
-              a melhor experiência visual. Em breve você poderá explorar nosso 
+              Nossa galeria está sendo cuidadosamente organizada para oferecer a
+              melhor experiência visual. Em breve você poderá explorar nosso
               arquivo completo de imagens e momentos únicos.
             </p>
             <p className="text-sm text-white opacity-60">
@@ -126,8 +134,9 @@ export default function Gallery() {
             Quer acompanhar nossos próximos eventos?
           </h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Fique por dentro dos lançamentos, eventos exclusivos e bastidores 
-            da Side Magazine. Siga nossas redes sociais para não perder nenhum momento.
+            Fique por dentro dos lançamentos, eventos exclusivos e bastidores da
+            Side Magazine. Siga nossas redes sociais para não perder nenhum
+            momento.
           </p>
           <div className="flex justify-center gap-4">
             <a
@@ -155,9 +164,9 @@ export default function Gallery() {
       {/* Technical Note */}
       <div className="mt-16 pt-8 border-t border-gray-200 text-xs text-gray-500">
         <p className="italic">
-          As galerias estão sendo organizadas e novas imagens serão adicionadas conforme 
-          os eventos acontecem. Esta seção será expandida com funcionalidades avançadas 
-          de visualização em breve.
+          As galerias estão sendo organizadas e novas imagens serão adicionadas
+          conforme os eventos acontecem. Esta seção será expandida com
+          funcionalidades avançadas de visualização em breve.
         </p>
       </div>
     </div>

@@ -1,0 +1,25 @@
+
+> rest-express@1.0.0 lint
+> eslint . --ext .js,.jsx,.ts,.tsx
+
+
+/home/runner/work/side-magazine/side-magazine/client/src/hooks/use-toast.ts
+  18:7  warning  'actionTypes' is assigned a value but only used as a type. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/home/runner/work/side-magazine/side-magazine/client/src/pages/gallery.tsx
+   3:10  warning  'Button' is defined but never used. Allowed unused vars must match /^_/u                     @typescript-eslint/no-unused-vars
+   4:10  warning  'Eye' is defined but never used. Allowed unused vars must match /^_/u                        @typescript-eslint/no-unused-vars
+   4:15  warning  'Calendar' is defined but never used. Allowed unused vars must match /^_/u                   @typescript-eslint/no-unused-vars
+  50:17  warning  'galleries' is assigned a value but never used. Allowed unused vars must match /^_/u         @typescript-eslint/no-unused-vars
+  50:28  warning  'isLoading' is assigned a value but never used. Allowed unused vars must match /^_/u         @typescript-eslint/no-unused-vars
+  56:9   warning  'displayGalleries' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/home/runner/work/side-magazine/side-magazine/client/src/pages/home.tsx
+  25:22  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/runner/work/side-magazine/side-magazine/server/index.ts
+  12:44  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  42:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 10 problems (0 errors, 10 warnings)
+

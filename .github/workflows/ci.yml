@@ -7,6 +7,11 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+# Permissões necessárias
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   ci:
     name: Build, Lint and Type Check
@@ -30,24 +35,96 @@ jobs:
       run: npm ci
       
     - name: Run ESLint
-      run: npm run lint
+      run: |
+        echo "🔍 Running ESLint..."
+        npm run lint
+        echo "✅ ESLint passed!"
       
     - name: Run TypeScript type checking
-      run: npm run check
+      run: |
+        echo "🔍 Running TypeScript type checking..."
+        npm run check
+        echo "✅ Type checking passed!"
       
     - name: Build frontend and backend
-      run: npm run build
+      run: |
+        echo "🏗️ Building frontend and backend..."
+        npm run build
+        echo "✅ Build completed!"
       
     - name: Verify build artifacts
       run: |
-        echo "Checking build artifacts..."
+        echo "🔍 Checking build artifacts..."
+        
+        # Verificar se diretório dist existe
+        if [ ! -d "dist" ]; then
+          echo "❌ Build directory 'dist' not found!"
+          exit 1
+        fi
+        
+        # Verificar se index.js do servidor existe
+        if [ ! -f "dist/index.js" ]; then
+          echo "❌ Server build 'dist/index.js' not found!"
+          exit 1
+        fi
+        
+        # Verificar se diretório public com frontend existe
+        if [ ! -d "dist/public" ]; then
+          echo "❌ Frontend build directory 'dist/public' not found!"
+          exit 1
+        fi
+        
+        # Verificar se index.html existe
+        if [ ! -f "dist/public/index.html" ]; then
+          echo "❌ Frontend build 'dist/public/index.html' not found!"
+          exit 1
+        fi
+        
+        echo "📁 Build artifacts found:"
         ls -la dist/
+        echo ""
+        echo "📁 Frontend assets:"
         ls -la dist/public/
-        echo "Build completed successfully!"
+        echo ""
+        echo "✅ All build artifacts verified successfully!"
+
+    - name: Check for critical issues
+      run: |
+        echo "🔍 Checking for critical linting issues..."
+        # Executar lint novamente mas falhar apenas em errors (não warnings)
+        npm run lint 2>&1 | tee lint-output.txt
+        
+        # Verificar se existem errors (não apenas warnings)
+        if grep -q " error " lint-output.txt; then
+          echo "❌ Critical linting errors found! Please fix them before merging."
+          exit 1
+        fi
+        
+        echo "✅ No critical linting errors found!"
+
+  # Job para notificar sucesso
+  success:
+    name: CI Success
+    runs-on: ubuntu-latest  
+    needs: ci
+    if: success()
+    
+    steps:
+    - name: Notify success
+      run: |
+        echo "✅ CI Pipeline Passed!"
+        echo "All checks completed successfully:"
+        echo "- ✅ Dependencies installed"  
+        echo "- ✅ ESLint passed"
+        echo "- ✅ TypeScript type checking passed"
+        echo "- ✅ Build completed successfully"
+        echo "- ✅ Build artifacts verified"
+        echo ""
+        echo "🚀 Ready to merge!"
 
   # Job para notificar se algum step falhar
-  notify-failure:
-    name: Notify on Failure
+  failure:
+    name: CI Failure
     runs-on: ubuntu-latest
     needs: ci
     if: failure()
@@ -56,10 +133,19 @@ jobs:
     - name: Notify failure
       run: |
         echo "❌ CI Pipeline Failed!"
-        echo "The Pull Request contains errors that must be fixed:"
-        echo "- Lint errors or warnings"
+        echo ""
+        echo "The Pull Request contains issues that must be fixed:"
+        echo "- Lint errors (critical errors, not warnings)"
         echo "- TypeScript type checking errors"
         echo "- Build failures"
+        echo "- Missing build artifacts"
         echo ""
         echo "Please review the failed steps above and fix the issues before merging."
+        echo "You can run the following commands locally to reproduce the issues:"
+        echo ""
+        echo "  npm ci"
+        echo "  npm run lint"
+        echo "  npm run check" 
+        echo "  npm run build"
+        echo ""
         exit 1
